@@ -34,9 +34,74 @@
 \end{frame}
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
+Security Testing
+	\begin{itemize}[<+- | alert@+>]
+		\item Institute for Security and Open Methodologies (ISECOM)
+		\begin{itemize}
+			\item \textit{Open Source Security Testing Methodology Manual} (OSSTMM)
+			\begin{itemize}
+				\item Information Security
+				\item Process Security
+				\item \alert<9>{Internet Technology Security}
+				\item Communications Security
+				\item Wireless Security
+				\item Physical Security
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
+Internet Technology Security
+	\begin{itemize}[<+- | alert@+>]
+		\item Kali Linux
+		\item Wireshark
+		\begin{itemize}
+			\item Network Surveying
+		\end{itemize}
+		\item Nmap
+		\begin{itemize}
+			\item Port Scanning
+			\item Services Identification
+			\item System Identification
+			\begin{itemize}
+				\item Vulnerability Research and Verification
+			\end{itemize}
+			\item Denial of Service Testing
+		\end{itemize}
+		\item Nessus
+		\begin{itemize}
+			\item Internet Application Testing
+		\end{itemize}
+		\item Metasploit
+		\begin{itemize}
+			\item Exploit Testing
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
 Open Smart Grid Protocol (OSGP)
 	\begin{itemize}[<+- | alert@+>]
-		\item Protocollo di comunicazione su Powerline
-		\item 
+		\item Comunicazione Smart meter $\leftrightarrow$ Aggregatore su Powerline
+		\item Protocollo leggero
+		\begin{itemize}
+			\item Paga in sicurezza
+		\end{itemize}
+		\item Stream cipher RC4 - Ron Rivest, 1987 (mai pubblicato uff.)
+		\begin{itemize}
+			\item Periodicità nei primi 256 byte
+			\item Forte correlazione fra chiave e keystream (\textit{Breaking 104 bit WEP in less than 60 seconds})
+		\end{itemize}
+		\item Funzione di digest lineare
+		\begin{itemize}
+			\item Ricomputazione del digest corretto senza il bisogno di cifratura
+			\item Soggetta ad attacchi \textit{man-in-the-middle}
+		\end{itemize}
+		\item Secure Broadcast
+		\begin{itemize}
+			\item Sicurezza non nota
+			\item Aggiornamenti firmware
+		\end{itemize}
 	\end{itemize}
 \end{frame}
