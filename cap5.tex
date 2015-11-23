@@ -33,8 +33,9 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
-Security Testing
+\plain{Security Testing}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: Security Testing}
 	\begin{itemize}[<+- | alert@+>]
 		\item Institute for Security and Open Methodologies (ISECOM)
 		\begin{itemize}
@@ -51,8 +52,8 @@ Security Testing
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
-Internet Technology Security
+\begin{frame}{Principali vulnerabilità delle Smart Grid: Security Testing}
+\textbf{Internet Technology Security}
 	\begin{itemize}[<+- | alert@+>]
 		\item Kali Linux
 		\item Wireshark
@@ -80,8 +81,9 @@ Internet Technology Security
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
-Open Smart Grid Protocol (OSGP)
+\plain{Open Smart Grid Protocol}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: Open Smart Grid Protocol}
 	\begin{itemize}[<+- | alert@+>]
 		\item Comunicazione Smart meter $\leftrightarrow$ Aggregatore su Powerline
 		\item Protocollo leggero
@@ -106,35 +108,74 @@ Open Smart Grid Protocol (OSGP)
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
-False Data Injection
-\begin{itemize}[<+- | alert@+>]
-	\item Scambio informazioni stato
-	\item Stima dello stato $\rightarrow$ Modello \textit{real-time}
-	\item Manomettere le misure
-	\begin{itemize}
-		\item Frode
-		\item Sovraccaricare l'infrastruttura
-		\item Manipolare prezzi di mercato
-	\end{itemize}
-	\item \textit{Bad Data Injection}
-	\begin{itemize}
-		\item Rilevabile
-	\end{itemize}
-	\item \textit{Stealth Bad Data Injection}
-	\begin{itemize}
-		\item Non rilevabile
-		\item Necessaria conoscenza della topologia
-		\item Possibile inferire i parametri legati alla topologia
+\plain{False Data Injection}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: False Data Injection}
+	\begin{itemize}[<+- | alert@+>]
+		\item Scambio informazioni stato
+		\item Stima dello stato $\rightarrow$ Modello \textit{real-time}
+		\item Manomettere le misure
 		\begin{itemize}
-			\item \textit{Linear Independent Component Analysis}
+			\item Frode
+			\item Sovraccaricare l'infrastruttura
+			\item Manipolare prezzi di mercato
 		\end{itemize}
+		\item \textit{Bad Data Injection}
+		\begin{itemize}
+			\item Rilevabile
+		\end{itemize}
+		\item \textit{Stealth Bad Data Injection}
+		\begin{itemize}
+			\item Non rilevabile
+			\item Necessaria conoscenza della topologia
+			\item Possibile inferire i parametri legati alla topologia
+			\begin{itemize}
+				\item \textit{Linear Independent Component Analysis}
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+% opzionale %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
+\textbf{Modello Matematico}
+\begin{itemize}[<+- | alert@+>]
+	\item Vettore delle misurazioni
+	\begin{itemize}
+		\item $\textbf{z} = \textbf{h(x)} + \textbf{e}$
+		\begin{itemize}
+			\item $\textbf{h(x)}$: relazione non lineare tra le misure $\textbf{z}$ e lo stato del sistema $\textbf{x}$
+			\item $\textbf{e} = [e_1, \ldots, e_m]^T$, rumore Gaussiano delle misure
+			\item Matrice di covarianza $\Sigma_e$
+		\end{itemize}
+	\item $\textbf{H} \in {\rm I\!R}$, definito come
+	\begin{itemize}
+		\item $\textbf{H}=\frac{\partial\textbf{h(x)}}{\partial\textbf{x}}|_{x=0}$
+	\end{itemize}
+	\end{itemize}
+	\item Modello di approssimazione lineare della misura di corrente
+	\begin{itemize}
+		\item Misura sotto Operazioni Normali: $\textbf{z} =  \textbf{Hx} + \textbf{e}$
+		\begin{itemize}
+			\item Vettore di stato stimato: $\widehat{\textbf{x}} = (\textbf{H}^T\sum_e^{-1}\textbf{H})-1\textbf{H}^T\sum_e^{-1}\textbf{z}$
+		\end{itemize}
+	\end{itemize}
+	\item Bad Data Injection
+	\begin{itemize}
+		\item Misura sotto attacco non stealth: $\textbf{z}^\prime = \textbf{H}(\textbf{x}) + \textbf{b} + e$
+		\item Vettore residuo: $\textbf{r} = \textbf{z} - \textbf{H}\widehat{\textbf{x}}$
+		\item Rilevamento bad data: $max_i(|\textbf{r}_i|/\sqrt{cov(\textbf{r})}) \geq \gamma$
+	\end{itemize}
+	\item Stealth Bad Data Injection
+	\begin{itemize}
+		\item Misura sotto attacco stealth: $\textbf{z}^\prime = \textbf{H}(\textbf{x} + \delta\textbf{x}) + e$
 	\end{itemize}
 \end{itemize}
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
-	Disconnect Attack
+\plain{Disconnect Attack}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: Disconnect Attack}
 	\begin{itemize}[<+- | alert@+>]
 		\item Connessione/Disconnessione Remota
 		\item Attacco RCD $\rightarrow$ Blackout / Danni alla rete
@@ -146,8 +187,9 @@ False Data Injection
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
-	Jamming
+\plain{Jamming}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: Jamming}
 	\begin{itemize}[<+- | alert@+>]
 		\item 
 	\end{itemize}
