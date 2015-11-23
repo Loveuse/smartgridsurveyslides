@@ -1,5 +1,154 @@
-- OSGP
-- Attacking smart meters and smart devices
-- False data injection
-- Disconnect attack
-- Jamming
+% OSGP
+% Attacking smart meters and smart devices
+% False data injection
+% Disconnect attack
+% Jamming
+
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
+	\begin{itemize}[<+- | alert@+>]
+		\item Digitalizzazione delle infrastrutture critiche
+		\begin{itemize}
+			\item Aggiunta capacità computazione e comunicazione
+		\end{itemize}
+		\item Dispositivi non critici e disconnessi
+		\begin{itemize}
+			\item Connessi $\rightarrow$ Dati \textsc{process-critical}
+		\end{itemize}
+		\item Anello debole della catena
+		\begin{itemize}
+			\item Smart Meter
+		\end{itemize}
+		\item Nuova sfida per i produttori
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
+	\begin{itemize}[<+- | alert@+>]
+		\item Security Testing
+		\item Open Smart Grid Protocol
+		\item False Data Injection
+		\item Disconnect Attack
+		\item Jamming
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
+Security Testing
+	\begin{itemize}[<+- | alert@+>]
+		\item Institute for Security and Open Methodologies (ISECOM)
+		\begin{itemize}
+			\item \textit{Open Source Security Testing Methodology Manual} (OSSTMM)
+			\begin{itemize}
+				\item Information Security
+				\item Process Security
+				\item \alert<9>{Internet Technology Security}
+				\item Communications Security
+				\item Wireless Security
+				\item Physical Security
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
+Internet Technology Security
+	\begin{itemize}[<+- | alert@+>]
+		\item Kali Linux
+		\item Wireshark
+		\begin{itemize}
+			\item Network Surveying
+		\end{itemize}
+		\item Nmap
+		\begin{itemize}
+			\item Port Scanning
+			\item Services Identification
+			\item System Identification
+			\begin{itemize}
+				\item Vulnerability Research and Verification
+			\end{itemize}
+			\item Denial of Service Testing
+		\end{itemize}
+		\item Nessus
+		\begin{itemize}
+			\item Internet Application Testing
+		\end{itemize}
+		\item Metasploit
+		\begin{itemize}
+			\item Exploit Testing
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
+Open Smart Grid Protocol (OSGP)
+	\begin{itemize}[<+- | alert@+>]
+		\item Comunicazione Smart meter $\leftrightarrow$ Aggregatore su Powerline
+		\item Protocollo leggero
+		\begin{itemize}
+			\item Paga in sicurezza
+		\end{itemize}
+		\item Stream cipher RC4 - Ron Rivest, 1987 (mai pubblicato uff.)
+		\begin{itemize}
+			\item Periodicità nei primi 256 byte
+			\item Forte correlazione fra chiave e keystream (\textit{Breaking 104 bit WEP in less than 60 seconds})
+		\end{itemize}
+		\item Funzione di digest lineare
+		\begin{itemize}
+			\item Ricomputazione del digest corretto senza il bisogno di cifratura
+			\item Soggetta ad attacchi \textit{man-in-the-middle}
+		\end{itemize}
+		\item Secure Broadcast
+		\begin{itemize}
+			\item Sicurezza non nota
+			\item Aggiornamenti firmware
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
+False Data Injection
+\begin{itemize}[<+- | alert@+>]
+	\item Scambio informazioni stato
+	\item Stima dello stato $\rightarrow$ Modello \textit{real-time}
+	\item Manomettere le misure
+	\begin{itemize}
+		\item Frode
+		\item Sovraccaricare l'infrastruttura
+		\item Manipolare prezzi di mercato
+	\end{itemize}
+	\item \textit{Bad Data Injection}
+	\begin{itemize}
+		\item Rilevabile
+	\end{itemize}
+	\item \textit{Stealth Bad Data Injection}
+	\begin{itemize}
+		\item Non rilevabile
+		\item Necessaria conoscenza della topologia
+		\item Possibile inferire i parametri legati alla topologia
+		\begin{itemize}
+			\item \textit{Linear Independent Component Analysis}
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
+	Disconnect Attack
+	\begin{itemize}[<+- | alert@+>]
+		\item Connessione/Disconnessione Remota
+		\item Attacco RCD $\rightarrow$ Blackout / Danni alla rete
+		\item Difesa: ritardi casuali nell'esecuzione dei comandi RCD
+		\begin{itemize}
+			\item Prevenire rapidi cambiamenti del carico elettrico
+			\item Tempo per rilevare e fermare un attacco in corso
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
+	Jamming
+	\begin{itemize}[<+- | alert@+>]
+		\item 
+	\end{itemize}
+\end{frame}

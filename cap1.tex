@@ -1,3 +1,152 @@
-- Situation actuale
-- Cos'è e pecchè
-- Requisit
+\begin{frame}{Rete elettrica attuale}
+	\begin{figure}[h] 
+		\includegraphics[scale=0.25]{imgs/elect_grid.png}
+		\caption{Rete elettrica attuale}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Rete elettrica attuale}
+	\begin{itemize}[<+- | alert@+>]
+	\item Tre sottosistemi distinti
+		\begin{itemize}
+		\item Generazione
+		\item Trasmissione
+		\item Distribuzione
+		\end{itemize}
+	\item Comunicazione unidirezionale
+	\item Interconnessione e ridondanza per risolvere i problemi
+	\item Distribuzione dell'energia gestita da un controllore centralizzato
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Perchè la Smart Grid?}
+	\begin{itemize}[<+- | alert@+>]
+	\item Le industrie del settore dei servizi pubblici di tutto il mondo attualmente cercano di risolvere numerosi problemi
+		\begin{itemize}
+		\item Diversificazione della generazione di energia
+		\item Gestione delle richieste utente
+		\item Conservazione dell’energia
+		\item Riduzione globale dell’emissione di anidride carbonica
+		\end{itemize}
+	\item Tali problemi non possono essere risolti utilizzando l'infrastruttura attuale
+		\begin{itemize}
+			\item Inadeguatezza della struttura gerarchica
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Perchè la Smart Grid?}
+	\begin{itemize}[<+- | alert@+>]
+	\item Vari fattori hanno contribuito al passaggio verso una rete elettrica moderna
+	 \begin{itemize}
+	  	\item Strutture non più adeguate
+	  	\item Vincoli termici
+	  	\item Vincoli operativi
+	  	\item Sicurezza delle forniture
+	  	\item Iniziative nazionali
+	 \end{itemize}
+	\item Significative opportunità di crescita offerte dall'ICT e dal continuo monitoraggio
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Perchè la Smart Grid?}
+	\begin{figure}[h] 
+		\includegraphics[scale=0.25]{imgs/benefits.png}
+		\caption{Vantaggi introdotti dalla Smart Grid}
+	\end{figure}
+\end{frame}
+
+
+\begin{frame}{Smart Grid: definizione}
+\begin{itemize}[<+- | alert@+>]
+\item Il concetto di Smart Grid mette insieme una serie di tecnologie e soluzioni per gli utenti finali
+\item Non esiste una singola definizione precisa
+\item È possibile trovare una serie di caratterizzazioni
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Smart Grid: definizione}
+\begin{itemize}
+\item Secondo l’European Technology Platform
+\end{itemize}
+\begin{quote}
+\textit{``Una Smart Grid è una rete elettrica che può integrare intelligentemente le azioni di tutti gli utenti connesse ad essa - generatori, consumatori - in modo da fornire efficientemente un’alimentazione elettrica che sia sostenibile, economica e sicura.”}
+\end{quote}
+\end{frame}
+
+\begin{frame}{Smart Grid: definizione}
+\begin{itemize}
+\item In accordo all’US Department of Energy
+\end{itemize}
+\begin{quote}
+\textit{``Una Smart Grid utilizza la tecnologia digitale per migliorare l’affidabilità, la sicurezza e l’efficienza (sia economica che energetica) del sistema elettrico, a partire dalla generazione su larga scala, attraverso il sistema di distribuzione, fino ai consumatori, ed attraverso un numero crescente di risorse di storage e di generazione distribuita.”}
+\end{quote}
+\end{frame}
+
+
+\begin{frame}{Smart Grid: definizione}
+\begin{itemize}
+\item Per \textit{Smarter Grids: The Opportunity}
+\end{itemize}
+\begin{quote}
+\textit{``Una Smart Grid utilizza sensing, embedded processing e comunicazioni digitali per far sì che la rete elettrica sia osservabile (capace di essere misurata e visualizzata), controllabile (capace di essere manipolata ed utilizzata), automatizzata (capace di adattarsi ed autoripararsi), pienamente integrata (pienamente interoperabile con sistemi esistenti e con la capcità di incorporare un insieme di diverse sorgenti energetiche).”}
+\end{quote}
+\end{frame}
+
+\begin{frame}{Requisiti di una Smart Grid}
+\begin{itemize}[<+- | alert@+>]
+\item Building blocks che convertono un sistema di distribuizone di energia in una Smart Grid
+\begin{itemize}
+	\item Monitoraggio/sensing
+	\item Comunicazione
+	\item Controllo
+\end{itemize}
+\item Requisiti
+\begin{itemize}
+\item Capacità di rilevare malfunzionamenti o deviazioni dal normale range operativo
+\item Permettere che l’input dei sensori raggiunga gli elementi di controllo
+\item Generare messaggi per assicurarsi che la trasmissione nei vari punti della rete sia conforme alle aspettative
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Requisiti di una Smart Grid}
+\begin{itemize}[<+- | alert@+>]
+\item Quality of Service
+	\begin{itemize}
+		\item Bassa latenza: la maggior parte delle interazioni deve avvenire in tempo reale
+		\item Larghezza di banda sufficiente per permettere all'infrastruttura di comunicazione di trasmettere un numero crescente di messaggi in maniera simultanea senza impatto sulla latenza
+	\end{itemize}
+\item Interoperabilità
+	\begin{itemize}
+		\item Abilità delle diverse parti della Smart Grid di lavorare insieme
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Requisiti di una Smart Grid}
+\begin{itemize}[<+- | alert@+>]
+\item Scalabilità
+	\begin{itemize}
+		\item Facilitare l’inserimento di nuovi dispositivi, nuovi servizi, e meccanismi di monitoraggio real-time
+	\end{itemize}
+\item Standardizzazione
+	\begin{itemize}
+		\item IEEE P2030 group si occupa di definire standard e linee guida su come la Smart Grid dovrebbe operare utilizzando le ultime tecnologie nell’ingegnerizzazione dell’energia, controllo, comunicazione e informazione
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Requisiti di una Smart Grid}
+\begin{itemize}[<+- | alert@+>]
+\item Sicurezza
+	\begin{itemize}
+		\item Gestire attacchi volontari (terrorismo, spionaggio, utenti non contenti)
+		\item Gestire manomissioni involontarie (fallimenti delle attrezzature, disastri naturali)
+		\item North American Electrical Reliability Corporation-Critical Infrastructure Protection (NERC-CIP), IEEE, National Infrastructure Protection Plan (NIPP), e NIST stanno lavorando per definire i requisiti di sicurezza della Smart Grid
+		\item Denominatore comune: autenticazione, autorizzazione e tecnologie per la privacy
+	\end{itemize}
+\end{itemize}
+\end{frame}
