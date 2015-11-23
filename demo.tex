@@ -7,14 +7,23 @@
 \usepackage[scale=2]{ccicons}
 
 \usepackage{pgfplots}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
 \usepgfplotslibrary{dateplot}
+
+\definecolor{blue_slides}{RGB}{36,55,59}
+\definecolor{gray_slides}{RGB}{236,236,236}
+\definecolor{beaver_red}{RGB}{161,5,13}
+\setbeamercolor{block title}{fg=white,bg=blue_slides}
+\setbeamercolor{block body}{fg=black,bg=gray_slides}
+\setbeamertemplate{blocks}[rounded][shadow=true]
 
 \title{Smart Grid Survey}
 \subtitle{}
 \small{\date{\today}}
 \author{Marco Amoruso, Daniele Anello, Francesco Farina, Iolanda Rinaldi}
 \institute{Università degli Studi di Salerno}
-\titlegraphic{\hfill\includegraphics[height=1.5cm]{imgs/logo.png}}
+\titlegraphic{\hfill\includegraphics[scale=0.4]{imgs/logo.png}}
 
 \begin{document}
 
@@ -27,7 +36,7 @@
 \end{frame}
 
 
-\section{Smart Grid: panorama attuale e definizione}
+\section{Smart Grid: \newline panorama attuale e definizione}
 \input{cap1.tex}
 
 \section{Architettura}
@@ -39,7 +48,7 @@
 \section{Standard e tecnologie}
 \input{cap4.tex}
 
-\section{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
+\section{Principali vulnerabilità delle Smart Grid: \newline attacchi e contromisure}
 \input{cap5.tex}
 
 {\renewcommand{\addtocontents}[2]{}
