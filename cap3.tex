@@ -1,8 +1,51 @@
-%- Staxnet
 %- Parkerian Hexag
 %- Threats and impacts: un esempio per ogni caso
+
+%Definire un worm
+%Diffusione inconsapevole
+%Data la facile diffusione si pensava a una propagazione su scala mondiale
+%Variante Flame: spio e invio dati a blocchi (per non farmi beccare)
 \begin{frame}
-  \frametitle{Un caso esemplare di attacco:Stuxnet}
+  \frametitle{Un caso esemplare di attacco: Stuxnet}
+  \begin{itemize}[<+- | alert@+>]
+  	\item Noto \textbf{\color{blue_slides}worm} di 500 Kbyte scoperto nel 2010 %da VirusBlokAda, una società di sicurezza bielorussa
+  	\item Attaccava in 3 fasi:
+  	\begin{enumerate}[<+- | alert@+>]
+  		\item Attaccava macchine Windows e reti, replicandosi ripetutamente
+  		\item Ricercava software Siemens Step7 %Windows-based e utilizzato per programmare sistemi di controllo industriale e infine
+  		\item Comprometteva i programmable logic controller
+  	\end{enumerate}
+  \end{itemize}
+  \pause
+  \begin{block}{}
+  Stuxnet è stato creato e diffuso dal governo USA in collaborazione col governo Israeliano nella centrale iraniana di Natanz
+  \end{block}
+  \pause
+   \begin{block}{Scopo}
+   	Sabotare la centrifuga della centrale tramite comandi inviati all’hardware di controllo industriale responsabile della velocità di rotazione delle turbine per danneggiarle
+   \end{block}
+\end{frame}
+
+\begin{frame}{Un caso esemplare di attacco: Stuxnet}
+	\begin{figure}[h] 
+		\includegraphics[scale=0.3,cfbox=blue_slides 1pt 0pt]{imgs/stuxnet_hsw.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Un caso esemplare di attacco: Stuxnet}
+	\begin{enumerate}
+		\item \textbf{\color{blue_slides}Infection}: Entra nel sistema attraverso il collegamento di una penna USB e procede con l’infettare tutte le macchine su cui gira Windows (elude sistemi di automated-detection) %grazie a un certificato digitale che lo fa sembrare affidabile
+		\pause
+		\item \textbf{\color{blue_slides}Search}: Verifica se una macchina è parte del sistema di controllo industriale creato da Siemens
+		\pause
+		\item \textbf{\color{blue_slides}Update}: Se il sistema è quello target, il worm accede ad Internet per scaricare una versione più recente di se stesso
+		\pause
+		\item \textbf{\color{blue_slides}Compromise}: Compromette i controllori logici del sistema target %sfrutta la vulnerabilità zero-day
+		\pause
+		\item \textbf{\color{blue_slides}Control}: Spia le operazioni del sistema target ed utilizza le informazioni raccolte per prendere il controllo delle centrifughe %portandole al deterioramento
+		\pause
+		\item \textbf{\color{blue_slides}Deceive \& Destroy}: Fornisce informazioni fittizie ai controllori assicurandosi che non si accorgeranno del problema
+	\end{enumerate}
 \end{frame}
 
 \begin{frame}
