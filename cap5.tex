@@ -190,7 +190,34 @@
 \plain{Jamming}
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: Jamming}
-	\begin{itemize}[<+- | alert@+>]
-		\item 
-	\end{itemize}
+	\begin{block}{}
+	Strategia d'attacco utilizzata per la manipolazione del mercato elettrico
+	\end{block}
+	\pause
+	\begin{block}{Assunzione}
+	Si utilizza un sistema di comunicazione wireless, come \textbf{\color{blue_slides}WiMAX}, per effettuare il broadcast delle informazioni relative ai prezzi
+	\end{block}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: Jamming}
+	\textbf{Attacco}
+	\begin{enumerate}[<+- | alert@+>]
+		\item L'attaccante fa Jamming in un'area molto popolata
+		\item L'utente rimane a conoscenza del vecchio prezzo della corrente
+		\item L'attaccante monitora il mercato elettrico
+		\item Quando il prezzo cambia significativamente, si smette di fare Jamming
+		\item Ogni utente adatta il proprio consumo energetico in base al nuovo prezzo
+		%se il nuovo prezzo è superiore, l'utente diminuisce i consumi, facendo calare il prezzo con p alta. se il nuovo prezzo è più piccolo, l'utente incrementa i consumi, aumentando con alta probabilità il prezzo.
+		\item L'attaccante può avere profitti da questa manipolazione del mercato
+		%è in grado di predire come si comporteranno gli utenti alla ricezione del nuovo prezzo e quindi sono in grado di cambiare il prezzo della corrente quando e come vogliono.
+	\end{enumerate}
+	\pause
+	\begin{block}{Contromisure}
+		Evitare di modificare il consumo di energia in maniera simultanea.\newline
+		\textbf{\color{blue_slides}IDEA: } ci si basa su protocolli come Aloha e CSMA e sulla randomness intrinseca del \textbf{\color{blue_slides}mercato}
+		%utilizzando backoff casuali per evitare collisioni dovute a trasmissioni simultanee
+		%schema di backoff casuale: un consumer sceglie un tempo casuale per cambiare la propria power response
+		%
+		%si diffondono info relative ai cambiamenti in un intervallo di tempo piu ampio cosicchè la randomness del mercato possa contrattaccare i cambiamenti dei jammed user
+	\end{block}
 \end{frame}
