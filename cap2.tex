@@ -29,21 +29,19 @@
 \end{frame}
 
 \begin{frame}[fragile]{Customer} 
-		\begin{block}{Smart meter}
-		 E' un dispositivo elettronico che registra consumi di energia elettrica
+	\begin{itemize}[<+- | alert@+>]
+		\item Smart meter è un dispositivo elettronico che registra consumi di energia elettrica
 		\begin{itemize}
 			\item Comunica informazioni per scopi di fatturazione
 			\item Blocca la fornitura di energia  % bad pay o demande response
 			\item Notifica informazioni per monitoraggio e in caso di manomissione % comunica con i display   
-		\end{itemize}
-		\end{block}
-		\pause
-		\begin{block}{Advanced Metering Infrastructure} % sistema che integra smart meter, display, termostati ecc., reti di comunicazione verso i concentratori di dati e sistemi di gestione dei dati
+		\end{itemize}		 
+		\item Advanced Metering Infrastructure  % sistema che integra smart meter, display, termostati ecc., reti di comunicazione verso i concentratori di dati e sistemi di gestione dei dati
 		\begin{itemize}
 			\item Consente una comunicazione bidirezionale fra utility e consumer % ciò consente di inviare comandi per info di pricing basate sul tempo, azioni di domanda risposta o disconnessioni remote
 			\item Misura, colleziona, analizza il consumo energetico e comunica con smart device
-		\end{itemize}		
-		\end{block}	
+		\end{itemize}			
+	\end{itemize}
 \end{frame}
 
 %%% MARKETS %%% 
@@ -122,14 +120,14 @@
 
 % Trasferimento di massa di energia elettrica da fonti di generazione alla distribuzione attraverso molteplici substation
 % include remote terminal units, substation meters, protection relays, power quality monitors, phasor measurement units, sag monitors, fault recorders, e substation user interfaces.
-\begin{frame}[fragile]{Transmission}
+\begin{frame}[fragile]{Trasmission}
 	\begin{figure}[h] 
 		\includegraphics[scale=0.45]{imgs/tras.png}
 	\end{figure}
 \end{frame}
 
 % rilevatore di abbassamento di linea (sag)
-\begin{frame}[fragile]{Transmission}
+\begin{frame}[fragile]{Trasmission}
 	\begin{itemize}[<+- | alert@+>]
 		\item Gestita da un Regional Transmission Operator o Independent System Operator (RTO/ISO)
 			\begin{itemize}
@@ -141,16 +139,21 @@
 \end{frame}
 
 % Una substation elettrica è un punto di riferimento dei sistemi di generazione, trasmissione e distribuzione, dove il voltaggio viene trasformato da alto a basso e viceversa mediante trasformatori. Ci sono diversi tipi di substation: trasmissione, distribuzione, raccolta, smistamento.
-\begin{frame}[fragile]{Transmission}
+\begin{frame}[fragile]{Trasmission}
+	Le substation sono una componente chiave del sistema di trasmissione
 	\begin{itemize}[<+- | alert@+>]
-		\item Le substation sono una componente chiave del sistema di trasmissione
-		\begin{itemize}
-			\item 
-		\end{itemize}
+		\item Punto di connessione del sistemi di trasmissione e distribuzione
+		\item Costituite da componenti automatizzate % rtu e pmu monitorano i sistemi di trasmissione e fanno report 
+		\item Gestiscono, supervisionano e monitorano le apparecchiature di trasmissione % IED pure
+		\item Gestiscono dinamicamente il voltaggio			
+		\item Adottano politiche di ripristino, previsione e correzione   
 	\end{itemize}
 \end{frame}
+
 %%% DISTRIBUTION %%% 
 
+% Il dominio distribuzione è l'interconnessione elettrica tra il dominio di trasmissione, il dominio del cliente e dei punti di misurazione per il consumo, storage distribuito, e la generazione distribuita. Comunica più strettamente con il dominio delle operazioni in tempo reale per gestire i flussi di potenza associata ai mercati più dinamici e di altri fattori ambientali e di sicurezza. Fronteggia l'alta variabilità delle risorse rinnovabili
+% FLISR - AMI - DMS - GIS - OMS - Demand Response
 \begin{frame}[fragile]{Distribution}
 	\begin{figure}[h] 
 		\includegraphics[scale=0.45]{imgs/distr.png}
