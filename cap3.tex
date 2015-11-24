@@ -33,35 +33,37 @@
 	\end{figure}
 \end{frame}
 
-\begin{frame}{Un caso esemplare di attacco: Stuxnet}
-	\begin{enumerate}
-		\item \textbf{\color{blue_slides}Infection}: Entra nel sistema attraverso il collegamento di una penna USB e procede con l’infettare tutte le macchine su cui gira Windows (elude sistemi di automated-detection) %grazie a un certificato digitale che lo fa sembrare affidabile
-		\pause
-		\item \textbf{\color{blue_slides}Search}: Verifica se una macchina è parte del sistema di controllo industriale creato da Siemens
-		\pause
-		\item \textbf{\color{blue_slides}Update}: Se il sistema è quello target, il worm accede ad Internet per scaricare una versione più recente di se stesso
-		\pause
-		\item \textbf{\color{blue_slides}Compromise}: Compromette i controllori logici del sistema target %sfrutta la vulnerabilità zero-day
-		\pause
-		\item \textbf{\color{blue_slides}Control}: Spia le operazioni del sistema target ed utilizza le informazioni raccolte per prendere il controllo delle centrifughe %portandole al deterioramento
-		\pause
-		\item \textbf{\color{blue_slides}Deceive \& Destroy}: Fornisce informazioni fittizie ai controllori assicurandosi che non si accorgeranno del problema
-	\end{enumerate}
-\end{frame}
+%\begin{frame}{Un caso esemplare di attacco: Stuxnet}
+%	\begin{enumerate}
+%		\item \textbf{\color{blue_slides}Infection}: Entra nel sistema attraverso il collegamento di una penna USB e procede con l’infettare tutte le macchine su cui gira Windows (elude sistemi di automated-detection) %grazie a un certificato digitale che lo fa sembrare affidabile
+%		\pause
+%		\item \textbf{\color{blue_slides}Search}: Verifica se una macchina è parte del sistema di controllo industriale creato da Siemens
+%		\pause
+%		\item \textbf{\color{blue_slides}Update}: Se il sistema è quello target, il worm accede ad Internet per scaricare una versione più recente di se stesso
+%		\pause
+%		\item \textbf{\color{blue_slides}Compromise}: Compromette i controllori logici del sistema target %sfrutta la vulnerabilità zero-day
+%		\pause
+%		\item \textbf{\color{blue_slides}Control}: Spia le operazioni del sistema target ed utilizza le informazioni raccolte per prendere il controllo delle centrifughe %portandole al deterioramento
+%		\pause
+%		\item \textbf{\color{blue_slides}Deceive \& Destroy}: Fornisce informazioni fittizie ai controllori assicurandosi che non si accorgeranno del problema
+%	\end{enumerate}
+%\end{frame}
 
+\plain{Definire la sicurezza}
+
+%magari su parkerian hexad parlare delle successive slides senza scriverle
 \begin{frame}
-  \frametitle{Definire la sicureza}
+  \frametitle{Definire la sicurezza: Parkerian hexad}
   	\begin{figure}[h] 
 		\includegraphics[scale=0.4]{imgs/hexad.png}
-		\caption{Parkerian hexad}
+		%\caption{Parkerian hexad}
 	\end{figure}
 \end{frame}
 
 \begin{frame}
   \frametitle{Definire la sicurezza}
-  \begin{itemize}[<+- | alert@+>]
-  \item \textit{Confidentiality}
-  	\begin{itemize}
+  \textbf{Confidentiality}
+  	\begin{itemize}[<+- | alert@+>]
   		\item Dati confidenziali $\rightarrow$ se noti, potrebbero causare danni alla sicurezza delle operazioni di tutto il sistema
   		\item Informazioni ricavate dal lavoro delle componenti della Smart Grid
   		\item Dati personali dei clienti $\rightarrow$ garantire la \textit{privacy}
@@ -69,60 +71,55 @@
   		\item Punti che introducono rischio: locazioni di memoria e meccanismi di trasmissione dati
   		\item Soluzioni: cifratura dei dati e controllo degli accessi
   	\end{itemize}
-  \end{itemize}
+  %\end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Definire la sicurezza}
-  \begin{itemize}[<+- | alert@+>]
-  \item \textit{Integrity}
-  	\begin{itemize}
+   \textbf{Integrity}
+  	\begin{itemize}[<+- | alert@+>]
   	\item Abilità del sistema di evitare che le informazioni siano modificate da persone o da sistemi non autorizzati
   	\item Mancanza di integrity $\rightarrow$ il sistema riceve dati non accurati $\rightarrow$ instabilità della Smart Grid
   	\item Punti che introducono rischio: componenti in cui si consente il passaggio dati da un sistema ad un altro
   	\item Soluzioni: \textit{auditing}, \textit{authorization}, \textit{nonrepudiation}, \textit{message-signing}
   	\end{itemize}
-  \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Definire la sicurezza}
-  \begin{itemize}[<+- | alert@+>]
-  \item \textit{Availability}
-  	\begin{itemize}
+   \textbf{Availability}
+  	\begin{itemize}[<+- | alert@+>]
   	\item Capacità del sistema di compiere il lavoro che gli è stato assegnato, nel momento in cui se ne ha bisogno 
   	\item Punti che introducono rischio: qualsiasi sistema, rete, dispositivo che gestisce le comunicazioni e che si trova a dover effettuare l'inoltro di un comando da un’estremità del sistema ad un’altra
   	\item Soluzioni: tecniche di ridondanza
   	\end{itemize}
-  \item \textit{Control (o Possession)}
-  	\begin{itemize}
+   \textbf{Control (o Possession)}
+  	\begin{itemize}[<+- | alert@+>]
   	\item Capacità di controllare le informazioni che necessitano protezione
   	\item Mancanza di controllo dati $\rightarrow$  compromissione del sistema che li trasmette $\rightarrow$ provenienza delle informazioni non garantita $\rightarrow$ diminuzione dell'affidabilità di quest'ultime
   	\end{itemize}
-  \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Definire la sicurezza}
-  \begin{itemize}[<+- | alert@+>]
-  \item \textit{Authenticity}
-  	\begin{itemize}
+   \textbf{Authenticity}
+  	\begin{itemize}[<+- | alert@+>]
   	\item Processo utilizzato per descrivere la certezza della provenienza
   	\item Assicurarsi che la fonte dei dati e i dati stessi siano autentici
   	\end{itemize}
-  \item \textit{Usability (o Utility)}
-  \begin{itemize}
+  \textbf{Usability (o Utility)}
+  \begin{itemize}[<+- | alert@+>]
   \item Assicurare che i dati siano utilizzabili
   \item Flusso di dati cifrato $\rightarrow$ garantisce la sicurezza ma rende difficile far sì che le informazioni siano utili
   \item Usabilità fornisce valore a livello aziendale $\rightarrow$ trattato come il requisito a più alta priorità
   \end{itemize}
-  \end{itemize}
 \end{frame}
+
+\plain{Building blocks} %una slide con l'elenco e spiegare a voce e magari lasciare quelle sull'integrity
 
 \begin{frame}
   \frametitle{Building blocks}
-  \begin{itemize}[<+- | alert@+>]
-  \item \textit{Layered security model}
+  \textbf{Layered security model}
   \begin{itemize}
   \item Struttura ad anello 
   \item Comunicazione tra gli strati del sistema sicura
@@ -132,12 +129,13 @@
   	\end{itemize}
   \item Assicurare che un fallimento in uno strato non abbia impatto nè in uno strato più basso nè in qualsiasi sistema dello stesso strato
   \end{itemize}
-  \end{itemize}
     	\begin{figure}[h] 
-		\includegraphics[scale=0.15]{imgs/ring.png}
+		\includegraphics[scale=0.1]{imgs/ring.png}
 	\end{figure}
 \end{frame}
 
+
+%magari togliere per tutti il puntino più esterno
 \begin{frame}
   \frametitle{Building blocks}
   \begin{itemize}[<+- | alert@+>]
@@ -208,6 +206,8 @@
   \end{itemize}
 \end{frame}
 
+\plain{Threats and Impacts}%minacce una slide
+
 \begin{frame}
   \frametitle{Threats and Impacts: Consumer threats}
   \begin{itemize}[<+- | alert@+>]
@@ -234,27 +234,24 @@
   \end{itemize}
 \end{frame}
 
+%%%%meno testo, più parole chiave da qui in giù. Parole tolte usate a voce
+
 \begin{frame}
   \frametitle{Threats and Impacts: Consumer threats}
-  \begin{itemize}[<+- | alert@+>]
-  \item \textit{Impatti}
-	\begin{itemize}
-	\item Privacy del consumatore
+	\textbf{Privacy del consumatore}
 		\begin{itemize}
 		\item Gli smart meter raccolgono, tra i vari dati, anche informazioni personali degli utenti
 		\item se tali dati giungono ad un hacker, potrà utilizzarli per scopi maliziosi
 		\end{itemize}
-	\item Impatto sull'availability
+	\textbf{Impatto sull'availability}
 			\begin{itemize}
 		\item Uno degli obiettivi principali della Smart Grid è rendere la corrente sempre disponibile
 		\item Attacchi ai consumatori possono incidente sulla fornitura di corrente (alterazione di termostati, limitazione o impedimento di servizi d'emergenza) 
 		\end{itemize}
-	\item Impatto finanziario
+	\textbf{Impatto finanziario}
 				\begin{itemize}
 		\item Corruzione di dati $\rightarrow$ emissione di bollette inaccurate
 		\end{itemize}
-  \end{itemize}
-  \end{itemize}
 \end{frame}
 
 \begin{frame}
