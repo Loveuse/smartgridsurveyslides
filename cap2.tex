@@ -1,3 +1,18 @@
+% Examples of applications and devices:
+% Customer domain include smart meters, appliances, thermostats, energy storage, electric vehicles, and distributed generation. 
+% Transmission or Distribution domain include phasor measurement units (PMUs) in a transmission line substation, substation controllers, distributed generation, and energy storage
+% Operations domain include SCADA systems and computers or display systems at the operation center
+% Operations, Market, and Service Provider domains are similar to those in Web and business information processing
+
+
+% customer: end user dell'elettricità, può inoltre generare, memorizzare, gestire l'uso dell'energia
+% markets: gli operatori e partecipanti nei mercati dell'elettricità
+% service providers: i fornitori di servizi ai customer o all'utility
+% operations: i gestori del passaggio dell'elettricità
+% bulk generation: generatori di energia
+% transmission: trasportatori di energia su lunghe distanze
+% distribution: distributori di energia da e verso i clienti  
+
 \begin{frame}[fragile]{Architettura}
 	\begin{figure}[h] 
 		\includegraphics[scale=0.6]{imgs/sg.png}
@@ -6,6 +21,13 @@
 
 % Energy and supporting ancillary services (capacity that can be dispatched when needed) are procured through the Markets domain, scheduled and operated from the Operations domain, and finally delivered through the Transmission domain to the distribution system and finally to the Customer domain.
 
+% Enterprise Bus: connette applicazioni di centri di controllo ai mercati, generatori 
+% Wide Area Networks: connette geograficamente siti distanti 
+% Field Area Networks: connete dispositivi, come Intelligent Electronic Devices (IED) che controllano that control circuit breakers and transformers (A circuit breaker is an automatically operated electrical switch designed to protect an electrical circuit from damage caused by overload or short circuit. Its basic function is to detect a fault condition and interrupt current flow)
+% Premises Networks: include rete dei consumatori 
+% si utilizza una combinazione di internet e reti proprietarie per la comunicazione 
+% net di net di info e sys di sys
+% applicazioni di un dominio devono poter comunicare con altre di altri domini rispetto requisiti di sicurezza (confidentiality, integrity ecc. Compromissioni di una rete non deve compromettere le altre)
 \begin{frame}[fragile]{Architettura}
 	\vspace{-10pt}
 	\begin{figure}[h] 
@@ -22,6 +44,14 @@
 
 %%% CUSTOMER %%% 
 
+% Il cliente è in definitiva la parti interessata per cui l'intera griglia è stato creata. Questo è il dominio in cui l'elettricità viene consumata. Sono in grado di gestire l'energia consumata e generata, demande response
+
+% Dominio diviso in tre domini, l'energia di cui hanno bisogno è diversa meno di 20kW home, 20-200kW commercial, oltre 200kW industrial
+% Building or Home: Un sistema che è in grado di controllare varie funzioni all'interno di un edificio di automazione, come l'illuminazione e controllo della temperatura.
+% Industrial: Un sistema che controlla i processi industriali come fabbricazione o di deposito. Questi sistemi hanno requisiti molto differenti rispetto ai sistemi domestici e costruzione.
+
+% veicoli elettrici: perchè? conservano energia grazie a batterie ricaricabili - parcheggiati sempre 95% -> usati come distributori di energia e risorsa di alimentazione nella smart grid. usati come energy storage
+
 \begin{frame}[fragile]{Customer} 
 	\begin{figure}[h] 
 		\includegraphics[scale=0.45]{imgs/cust.png}
@@ -36,10 +66,10 @@
 			\item Blocca la fornitura di energia  % bad pay o demande response
 			\item Notifica informazioni per monitoraggio e in caso di manomissione % comunica con i display   
 		\end{itemize}		 
-		\item Advanced Metering Infrastructure  % sistema che integra smart meter, display, termostati ecc., reti di comunicazione verso i concentratori di dati e sistemi di gestione dei dati
+		\item Advanced Metering Infrastructure  (AMI)% sistema che integra smart meter, display, termostati ecc., reti di comunicazione verso i concentratori di dati e sistemi di gestione dei dati
 		\begin{itemize}
 			\item Consente una comunicazione bidirezionale fra utility e consumer % ciò consente di inviare comandi per info di pricing basate sul tempo, azioni di domanda risposta o disconnessioni remote
-			\item Misura, colleziona, analizza il consumo energetico e comunica con smart device
+			\item Misura, colleziona, analizza il consumo energetico e comunica con gli smart device
 		\end{itemize}			
 	\end{itemize}
 \end{frame}
@@ -54,6 +84,12 @@
 		\includegraphics[scale=0.45]{imgs/market.png}
 	\end{figure}
 \end{frame}
+
+% Market Management: include mercati di trasmissione servizi e demand response
+% Retailing: vendono energia agli utenti finali
+% DER Aggregation: combinano partecipanti più piccolo per consentire alle risorse distribuite di partecipare nei mercati più grandi
+% Trading: acquisto e vendita di energia
+
 
 %%% SERVICE PROVIDER %%%
 
@@ -100,6 +136,7 @@
 %%% GENERATION %%%
 
 % Fornisce energia ai consumers. La generazione di energia è il processo di creazione di energia da diverse fonti energetiche. Tale energia viene portata attraverso il sistema di trasmissione. Comunicazioni con il dominio di trasmissione sono le più critici perché senza trasmissione, i clienti non possono essere serviti.
+% gestione del flusso energetico e variabilità, RTU e SCADA, outage ecc.
 \begin{frame}[fragile]{Generation}
 	\begin{figure}[h] 
 		\includegraphics[scale=0.45]{imgs/gen.png}
@@ -116,18 +153,18 @@
 \end{frame}
 
 
-%%% TRASMISSION %%% 
+%%% TRANSMISSION %%% 
 
 % Trasferimento di massa di energia elettrica da fonti di generazione alla distribuzione attraverso molteplici substation
 % include remote terminal units, substation meters, protection relays, power quality monitors, phasor measurement units, sag monitors, fault recorders, e substation user interfaces.
-\begin{frame}[fragile]{Trasmission}
+\begin{frame}[fragile]{Transmission}
 	\begin{figure}[h] 
 		\includegraphics[scale=0.45]{imgs/tras.png}
 	\end{figure}
 \end{frame}
 
 % rilevatore di abbassamento di linea (sag)
-\begin{frame}[fragile]{Trasmission}
+\begin{frame}[fragile]{Transmission}
 	\begin{itemize}[<+- | alert@+>]
 		\item Gestita da un Regional Transmission Operator o Independent System Operator (RTO/ISO)
 			\begin{itemize}
@@ -139,10 +176,10 @@
 \end{frame}
 
 % Una substation elettrica è un punto di riferimento dei sistemi di generazione, trasmissione e distribuzione, dove il voltaggio viene trasformato da alto a basso e viceversa mediante trasformatori. Ci sono diversi tipi di substation: trasmissione, distribuzione, raccolta, smistamento.
-\begin{frame}[fragile]{Trasmission}
+\begin{frame}[fragile]{Transmission}
 	Le substation sono una componente chiave del sistema di trasmissione
 	\begin{itemize}[<+- | alert@+>]
-		\item Punto di connessione del sistemi di trasmissione e distribuzione
+		\item Punto di connessione del sistema di trasmissione e distribuzione
 		\item Costituite da componenti automatizzate % rtu e pmu monitorano i sistemi di trasmissione e fanno report 
 		\item Gestiscono, supervisionano e monitorano le apparecchiature di trasmissione % IED pure
 		\item Gestiscono dinamicamente il voltaggio			
