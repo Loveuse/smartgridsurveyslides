@@ -1,6 +1,3 @@
-%- Tec per la comunicazione (non troppo dettaglio su IEEE 802).
-%- Standard per scambio di info.
-%- Standard per sicurezza.
 \plain{Tecnologie di comunicazione}
 \begin{frame}{IEEE 802}
 	\begin{itemize}
@@ -9,10 +6,14 @@
 	\end{itemize}
 	\begin{figure}[h] 
 		\includegraphics[scale=0.3,cfbox=blue_slides 1pt 0pt]{imgs/arch_ieee802.png}
-		%\caption{Architettura IEEE 802}
 	\end{figure}
 \end{frame}
 
+
+
+%Un set di host connessi ad una rete in modo tale che la trasmissione simultanea da due host nel set porta a collisioni, crea un dominio di collisione. Inoltre, le LAN Ethernet trasportano anche frame di broadcast il cui dominio raggiungibile `e chiamato dominio di broadcast.
+%Le prestazioni della rete, in caso di traffico, sono influenzate dal modo in cui i domini di collisione e di broadcast sono posizionati e pertanto l’idea è quella di isolarli per aumentare le prestazioni della rete
+%I Bridge limitano i domini di collisione mentre i Router limitano entrambi i domini
 \begin{frame}{IEEE 802[.3]}
 	\textbf{Ethernet}
 	\begin{itemize}
@@ -22,9 +23,9 @@
 	\end{itemize}
 	\begin{figure}[h] 
 		\includegraphics[scale=0.23,cfbox=blue_slides 1pt 0pt]{imgs/lan.png}
-		%\caption{LAN Ethernet}
 	\end{figure}
 \end{frame}
+
 
 \begin{frame}{IEEE 802[.11]}
 	\textbf{Wireless}
@@ -34,8 +35,15 @@
 		\item Componenti:
 			\begin{itemize}
 				\item Station
-				\item Access Point (\textbf{BSS})
+				%Qualsiasi dispositivo che comunica tramite una rete WLAN, ad esempio, un computer portatile, o cellulari che supportano WiFi
+				\item Access Point (\textbf{BSS}) 
+				%Consente ad una stazione di comunicare con un altra facendo da tramite
+				%Gli AP rendono il sistema scalabile e consentono la connessione cablata con altre reti
+				%In presenza di AP l’insieme delle station è chiamato Infrastructure BSS
 				\item Distribution System (\textbf{ESS})
+				%Interconnette Infrastructure BSS attraverso gli AP
+				%Facilita la comunicazione tra gli AP, l’inoltro del traffico da un BSS ad un altro ed il movimento di mobile station tra BSS
+				%Un insieme di Infrastructure BSS è chiamato Extended Service Set (ESS)
 			\end{itemize}
 	\end{itemize}
 \end{frame}
@@ -73,6 +81,8 @@
 				\begin{itemize}
 					\item Un dispositivo \textit{Master}
 					\item Fino a sette dispositivi \textit{Slave}
+		%Altri dispositivi possono sincronizzarsi col Master ma non possono partecipare alla comunicazione, tali dispositivi sono in un parked state
+		%Un device in parked state può passare in active state se il numero di Slave della Piconet è inferiore a sette
 				\end{itemize}
 				\item Scatternet
 				\begin{itemize}[<+- | alert@+>]
@@ -82,33 +92,17 @@
 	\end{itemize}		
 \end{frame}
 
+%	Un dispositivo si può trovare in due stati:
+%Connessione: Active mode, Hold mode, Sniff mode, Park mode
+%Standby: Ascolta il canale ogni 1,28 secondi per eventuali messaggi dal Master
+
 \begin{frame}{IEEE 802[.15.1]}
 \textbf{Bluetooth}
 	\begin{figure}[h] 
 		\includegraphics[scale=0.3,cfbox=blue_slides 1pt 0pt]{imgs/bt.png}
-		%\caption{Piconet e Scatternet}
+		%Le Piconet possono essere interconnesse attraverso un Bridge che può essere Slave per una Piconet e Master per un’altra oppure Slave per due Piconet
 	\end{figure}
 \end{frame}
-
-%\begin{frame}{IEEE 802[.15.1]}
-%\textbf{Bluetooth}
-%\begin{itemize}[<+- | alert@+>]
-%	\item Un dispositivo si può trovare in due stati
-%	\begin{itemize}[<+- | alert@+>]
-%		\item Connessione
-%		\begin{itemize}[<+- | alert@+>]
-%			\item Active mode
-%			\item Hold mode
-%			\item Sniff mode
-%			\item Park mode
-%		\end{itemize}
-%		\item Standby
-%		\begin{itemize}[<+- | alert@+>]
-%			\item Ascolta il canale ogni 1,28 secondi per eventuali messaggi dal \textit{Master}
-%		\end{itemize}
-%	\end{itemize}
-%\end{itemize}
-%\end{frame}
 
 \begin{frame}{IEEE 802[.15.4]}
 \textbf{ZigBee \& 6LoWPAN}
@@ -170,8 +164,8 @@
 		\item Tecnica di Orthogonal Frequency Division Multiple Access (OFDMA)
 		\item Soddisfa varie specifiche imposte da una tipica Smart Grid
 		%tra cui massima accessibilità ed interoperabilità, tempi di latenza inferiori ai 50 ms e larghezza di banda di 5 MHz.
-		%\item La copertura si estende fino ai 50 km
-		%\item Supporta i dispositivi mobili
+		%La copertura si estende fino ai 50 km
+		%Supporta i dispositivi mobili
 	\end{itemize}
 \end{frame}
 
@@ -182,7 +176,9 @@
 	\end{figure}
 \end{frame}
 
-%IEEE P1901 e HomePlug
+%IEEE P1901 e HomePlug?
+%L’ENEL, nota azienda multinazionale produttrice e distributrice di energia elettrica, ha scelto la tecnologia PLC per trasferire i dati degli smart meter al data concentrator più vicino e la tecnologia GSM per inviare i dati al data center.
+%Sono utilizzate tre tecnologie di comunicazione che prendono il nome di narrowband transmission, spread-spectrum transmission e DSP-processed narrowband transmission
 \begin{frame}{Power line}
 	\textbf{Power Line Communication}
 	\begin{itemize}[<+- | alert@+>]
@@ -202,13 +198,20 @@
 
 \plain{Standard per lo scambio di informazioni}
 
+%DNP3
+%Insieme di protocolli di comunicazione utilizzato tra i componenti nei sistemi di automazione
+%Fondamentale nei sistemi SCADA, utilizzato dalle Master Station per comunicare con le RTU e gli IED
+%	Lo User Layer DNP prende input analogici/binari e da in output segnali analogici e binari.
+%Un master dnp3 invia richieste e le stazioni Slave rispondono, ma uno Slave può anche trasmettere messaggi senza aver ricevuto richiesta.
+%Il Physical Layer utilizza noti protocolli di comunicazione seriali come EIA 232 o EIA 485.
+
 \begin{frame}{Standard per lo scambio di informazioni}
 	\textbf{Modbus}
 	\begin{itemize}[<+- | alert@+>]
-		\item Protocollo di messaggistica (\textit{Application Layer})
+		\item Protocollo di messaggistica (\textit{Application Layer})%risiede nell’Application Layer e consente la comunicazione tra i dispositivi collegati su diversi bus e reti
 		\item Dispositivi collegati su diversi bus e reti
-		\item Ethernet su fibra ottica con trasmissione seriale asincrona
-		\item Automazione delle substation
+		\item Ethernet su fibra ottica con trasmissione seriale asincrona%EIA 232, EIA 422, EIA 485
+		\item Automazione delle substation%Modbus su EIA 485
 		\item Comunicazione
 			\begin{itemize}[<+- | alert@+>]
 			\item Master $\xrightarrow{query}$ Slave/broadcast
@@ -218,15 +221,8 @@
 	\end{itemize}
 \end{frame}
 
-%\begin{frame}{Standard per lo scambio di informazioni}
-%\textbf{DNP3}
-%	\begin{itemize}[<+- | alert@+>]
-%		\item Insieme di protocolli di comunicazione utilizzato tra i componenti nei sistemi di automazione
-%		\item Fondamentale nei sistemi SCADA, utilizzato dalle Master Station per comunicare con le RTU e gli IED
-%		%Lo User Layer DNP prende input analogici/binari e da in output segnali analogici e binari. Un master dnp3 invia richieste e le stazioni Slave rispondono, ma uno Slave può anche trasmettere messaggi senza aver ricevuto richiesta. Physical Layer utilizza noti protocolli di comunicazione seriali come EIA 232 o EIA 485.
-%	\end{itemize}
-%\end{frame}
 
+%Generalmente, questi protocolli girano su reti TCP/IP o LAN con switch Ethernet molto performanti per rispondere ai requisiti stringenti dei dispositivi, che necessitano di tempi di risposta inferiori a 4-5 millisecondi.
 \begin{frame}{Standard per lo scambio di informazioni}
 	\textbf{ISO/IEC 61850}
 	\begin{itemize}[<+- | alert@+>]
@@ -244,28 +240,23 @@
 		\item Si integra con sistemi preinstallati in rete
 		\item Scalabile e facilita integrazione
 		\item Si basa su standard esistenti
-		\item Supporta i \textit{self descriptive device}
-		\item Si basa su \textit{data object}
+		\item Supporta i \textit{self descriptive device}%eliminando problemi di configurazione manuale
+		\item Si basa su \textit{data object}%e standardizzazione degli elementi tipici di una rete elettrica
 		\item Estensibile e flessibile
 		\item Si adatta rapidamente alla configurazione del sistema
 	\end{itemize}
 	\end{block}
 \end{frame}
 
+%ISO/IEC 61850 suddivide ogni sottostazione in tre livelli[25] chiamati Station Level, Bay Level e Process Level
 
 %Un device model considera inizialmente un physical device. Tale modello consente ad un singolo dispositivo fisico di agire da gateway di informazioni per più dispositivi. Successivamente vengono specificati i logical device all’interno di tale dispositivo. Ogni logical device contiene uno o più logical node, logicamente correlati ad una funzione della stazione. I logical node sono definiti da gruppi di data object e relativi servizi, ognuno modellato secondo gli schemi definiti dalle Common Data Classes (CDC).
+
+%I logical node sono identificati con nomi definiti dallo standard in cui la prima lettera indica l’attinenza (e.g. A controllo automatico, M misura, X switchgear, etc).
+%Utilizzando tale formato si è in grado di indicare le informazioni relative allo status o alla posizione di un dispositivo.
 \begin{frame}{Standard per lo scambio di informazioni}
 \textbf{ISO/IEC 61850}
 	\newline\textbf{Device Model}
-%	\begin{itemize}
-%		\item Physical Device
-%		\item Logical Device
-%		\item Logical Node
-%			\begin{itemize}
-%				\item Identificati con nomi definiti dallo standard in cui la prima lettera indica l'attinenza %A controllo automatico, M misura,etc.
-%			\end{itemize}
-%		\item Data Object e Servizi (\textit{Common Data Classes})
-%	\end{itemize}
 	\begin{figure}[h] 
 		\includegraphics[scale=0.35,cfbox=blue_slides 1pt 0pt]{imgs/iec61850ln.png}
 	\end{figure}
@@ -277,11 +268,12 @@
 		\item Oggetti e servizi astratti di comunicazione %permettono di scrivere un'applicazione indipendentemente dai protocolli tradizionali.
 		\item Abstract Communication Service Interface (ACSI)
 			\begin{itemize}[<+- | alert@+>]
-				\item Oggetti e servizi implementati attraverso il protocollo Manufacturing Message Specification (MMS) %che definisce i messaggi di comunicazione tra i centri di controllo %o tra stazioni e centri
+				\item Oggetti e servizi implementati attraverso il protocollo Manufacturing Message Specification (MMS) 
+				%che definisce i messaggi di comunicazione tra i centri di controllo o tra stazioni e centri
 			\end{itemize}
 		\item Linguaggio comune di configurazione per astrazione e standardizzazione
 		\begin{itemize}[<+- | alert@+>]
-			\item Substation Configuration Language (SCL)%basato su \textit{XML}
+			\item Substation Configuration Language (SCL)%basato su XML
 			\begin{itemize}[<+- | alert@+>]
 			\item[+] Interoperabilità tra IED
 			\item[+] Configurazione automatica
@@ -292,32 +284,37 @@
 	\end{itemize}		
 \end{frame}
 
-
-%Spiegazione a voce
 \begin{frame}{Standard per lo scambio di informazioni}
 \textbf{ISO/IEC 61850}
 \newline
 Lo standard si serve dei seguenti strumenti per la gestione delle informazioni
 \begin{itemize}[<+- | alert@+>]
 	\item Generic Substation Event (GSE)
+	%protocollo che fornisce uno strumento veloce ed affidabile per la segnalazione di eventi all’interno della sottostazione. Le caratteristiche principali sono il servizio multicast/broadcast con modello di comunicazione publish/subscribe. I messaggi sono trasmessi in formato binario. GSE prevede due modelli di servizio che prendono il nome di GOOSE e GSSE
 	\begin{itemize}[<+- | alert@+>]
 		\item Generic Object Oriented Substation Event (GOOSE)
+		%Utilizza Virtual LAN, stabilendo più network virtuali sulla stessa rete fisica e determinando livelli di priorità per i messaggi, consentendone anche la ritrasmissione
 		\item Generic Substation State Event (GSSE)
+		%Utilizzato per lo scambio di informazioni sui soli cambiamenti di stato. In questo caso i messaggi sono costituiti da una serie di bit che rap- presentano liste di stati. GSSE necessita un tempo di trasmissione maggiore se confrontato con GOOSE.
 	\end{itemize}
 	\item Sampled Measured Values (SMV)
+	%Protocollo per lo scambio di dati e la trasmissione di misure prodotte dai trasduttori delle sottostazioni: permette lo scambio di segnali tra gli IED.
 	\item Time Synchronization
+	%Servizio di sincronizzazione dei clock fondamentale per applicazioni real-time. Utilizza un subset di Network Time Protocol (NTP) con riferimento allo Universal Coordinated Time (UTC). NTP è il protocollo tipicamente utilizzato per sincronizzare i clock di computer collegati ad Internet e in LAN.
 	\item Report e Logging
+	%REPORT: Strumento che permette di memorizzare i cambiamenti dei dati e degli attributi relativi ai nodi logici. Genera dataset contenenti attributi di interesse e richiede ai nodi logici l’invio delle informazioni riguardanti le variazioni nel sistema.
+	%
+	%LOG: Registrazione degli eventi relativi ad un dispositivo. I log sono registrati in un server e, a differenza dei Report, i dispositivi logici creano al loro interno un database di eventi senza inviarne notifica.
 \end{itemize}
 \end{frame}
 
 \plain{Standard per la sicurezza}
 
-%\begin{frame}{Standard per la sicurezza}
-%	\begin{itemize}[<+- | alert@+>]
-%		\item Sono di recente invenzione e fondamentali data la grande mole di informazioni sensibili memorizzate sui computer collegati in rete
-%		\item Molte attività si sono automatizzate introducendo maggiore bisogno di \textbf{\color{blue_slides}affidabilità} e \textbf{\color{blue_slides}sicurezza}
-%	\end{itemize}
-%\end{frame}
+%Di recente invenzione e fondamentali data la grande mole di informazioni sensibili memorizzate sui computer collegati in rete
+%Molte attività si sono automatizzate introducendo maggiore bisogno di affidabilità e sicurezza
+
+%Limiti di ISO/IEC 61850: costi elevati per l’installazione dei server e dei dispositivi atti alla gestione dei dati ma anche complessità dal punto di vista dell’architettura
+%ISO/IEC 61850 è affiancato da ISO/IEC 62351 che garantisce la sicurezza e specifica i requisiti tecnici che devono essere rispettati dai fornitori
 
 \begin{frame}{Standard per la sicurezza}
 	\begin{block}{I problemi relativi alla sicurezza}
@@ -342,8 +339,10 @@ Lo standard si serve dei seguenti strumenti per la gestione delle informazioni
 \begin{itemize}[<+- | alert@+>]
 	\item Autenticazione nel processo di trasferimento di dati tramite firma digitale
 	\item Garanzia di accessi esclusivamente dopo autenticazione
-	\item Prevenzione dell'\textbf{\color{blue_slides}eavesdropping}
+	\item Prevenzione dell'\textbf{\color{blue_slides}eavesdropping}%ossia intercettazioni della comunicazione non autorizzate
 	\item Prevenzione da attacchi di \textbf{\color{blue_slides}playback} e attacchi di \textbf{\color{blue_slides}spoofing}
+	%PLAYBACK (REPLAY ATTACK): Impossessarsi di una credenziale di autenticazione comunicata da un host ad un altro, e riproporla successivamente simulando l'identità dell'emittente	
+	%SPOOFING: ovvero sostituirsi ad una controparte della comunicazione
 	\item Rilevamento delle intrusioni
 \end{itemize}
 \end{block}
@@ -357,10 +356,16 @@ Lo standard si serve dei seguenti strumenti per la gestione delle informazioni
 		\item Spiegazioni di alcuni scenari
 		\item Definizioni di termini
 		\item Definizioni di servizi di sicurezza in comunicazione TCP/IP based
+		%Definisce come possono essere forniti servizi di sicurezza in una comunicazione TCP/IP based e specifica suite di cifratura.
 		\item Aumento dei messaggi di sicurezza trasmessi su MMS
-		\item Procedure relative a Transport e Application Layer (TLS)%in modo da proteggere le informazioni trasmesse, riguarda invece la comunicazione seriale in cui si vanno a definire ulteriori misure di sicurezza per proteggere l’integrità delle connessioni seriali applicando chiavi hash
-		\item ISO/IEC 61850 %profili per la comunicazione non basati su TCP/IP
-		\item Network Management
+		%Definisce procedure, i miglioramenti del protocollo, e gli algoritmi atti a promuovere l’aumento dei messaggi di sicurezza trasmessi su MMS.
+		%tali procedure sono relative a Transport e Application Layer, basate su TLS, usate in modo da proteggere le informazioni trasmesse
+		\item Comunicazione seriale
+		%in cui si vanno a definire ulteriori misure di sicurezza per proteggere l’integrità delle connessioni seriali applicando chiavi hash
+		\item ISO/IEC 61850 %profili iso/iec 61850 per la comunicazione non basati su TCP/IP
+		\item Network Management%implementa o estende sistemi di intrusion detection
 		\item Role-Based access control
+		%approccio a sistemi ad accesso ristretto per utenti autorizzati.
+		%Tre regole fondamentali sono definite per il modello RBAC: Assegnazione dei ruoli, Autorizzazione dei ruoli, Autorizzazione alla transazione
 	\end{enumerate}
 \end{frame}
