@@ -9,9 +9,7 @@
 	\end{figure}
 \end{frame}
 
-
-
-%Un set di host connessi ad una rete in modo tale che la trasmissione simultanea da due host nel set porta a collisioni, crea un dominio di collisione. Inoltre, le LAN Ethernet trasportano anche frame di broadcast il cui dominio raggiungibile `e chiamato dominio di broadcast.
+%Un set di host connessi ad una rete in modo tale che la trasmissione simultanea da due host nel set porta a collisioni, crea un dominio di collisione. Inoltre, le LAN Ethernet trasportano anche frame di broadcast il cui dominio raggiungibile è chiamato dominio di broadcast.
 %Le prestazioni della rete, in caso di traffico, sono influenzate dal modo in cui i domini di collisione e di broadcast sono posizionati e pertanto l’idea è quella di isolarli per aumentare le prestazioni della rete
 %I Bridge limitano i domini di collisione mentre i Router limitano entrambi i domini
 \begin{frame}{IEEE 802[.3]}
@@ -62,7 +60,6 @@
 	Distribution System
 		\begin{figure}[h] 
 			\includegraphics[scale=0.3,cfbox=blue_slides 1pt 0pt]{imgs/ds.png} %border color
-			%\caption{Distribution System}
 		\end{figure}
 \end{frame}
 	
@@ -117,8 +114,8 @@
 
 \begin{frame}{IEEE 802[.15.4]}
 \textbf{ZigBee}
-%considerata come una buona opzione per il metering e per la gestione dell’energia ideale in implementazioni Smart Grid data la semplicità, mobilità, robustezza e i bassi costi di sviluppo.
-%problematiche: basse capacità elaborative, piccola dimensione della memoria e interferenze.
+%Considerata come una buona opzione per il metering e per la gestione dell’energia ideale in implementazioni Smart Grid data la semplicità, mobilità, robustezza e i bassi costi di sviluppo.
+%Problematiche: basse capacità elaborative, piccola dimensione della memoria e interferenze.
 \begin{itemize}
 	\item \textit{Application Support} e \textit{Network Layer} sono definiti dalla ZigBee Alliance
 	\item Un device può essere di due tipi
@@ -152,7 +149,6 @@
 	\end{itemize}
 	\begin{figure}[h]
 		\includegraphics[scale=0.3,cfbox=blue_slides 1pt 0pt]{imgs/6pan.png}
-		%\caption{Architettura di rete 6LoWPAN}
 	\end{figure}
 \end{frame}
 
@@ -163,7 +159,7 @@
 		\item Implementa diverse tecniche di crittografia, sicurezza ed autenticazione
 		\item Tecnica di Orthogonal Frequency Division Multiple Access (OFDMA)
 		\item Soddisfa varie specifiche imposte da una tipica Smart Grid
-		%tra cui massima accessibilità ed interoperabilità, tempi di latenza inferiori ai 50 ms e larghezza di banda di 5 MHz.
+		%Tra cui massima accessibilità ed interoperabilità, tempi di latenza inferiori ai 50 ms e larghezza di banda di 5 MHz.
 		%La copertura si estende fino ai 50 km
 		%Supporta i dispositivi mobili
 	\end{itemize}
@@ -176,7 +172,7 @@
 	\end{figure}
 \end{frame}
 
-%IEEE P1901 e HomePlug?
+%IEEE P1901 e HomePlug
 %L’ENEL, nota azienda multinazionale produttrice e distributrice di energia elettrica, ha scelto la tecnologia PLC per trasferire i dati degli smart meter al data concentrator più vicino e la tecnologia GSM per inviare i dati al data center.
 %Sono utilizzate tre tecnologie di comunicazione che prendono il nome di narrowband transmission, spread-spectrum transmission e DSP-processed narrowband transmission
 \begin{frame}{Power line}
@@ -252,8 +248,9 @@
 
 %Un device model considera inizialmente un physical device. Tale modello consente ad un singolo dispositivo fisico di agire da gateway di informazioni per più dispositivi. Successivamente vengono specificati i logical device all’interno di tale dispositivo. Ogni logical device contiene uno o più logical node, logicamente correlati ad una funzione della stazione. I logical node sono definiti da gruppi di data object e relativi servizi, ognuno modellato secondo gli schemi definiti dalle Common Data Classes (CDC).
 
-%I logical node sono identificati con nomi definiti dallo standard in cui la prima lettera indica l’attinenza (e.g. A controllo automatico, M misura, X switchgear, etc).
-%Utilizzando tale formato si è in grado di indicare le informazioni relative allo status o alla posizione di un dispositivo.
+%I logical node sono identificati con nomi definiti dallo standard in cui la prima lettera indica l’attinenza (e.g. A controllo automatico, M misura, X switchgear, etc)
+
+%Utilizzando tale formato si è in grado di indicare le informazioni relative allo status o alla posizione di un dispositivo
 \begin{frame}{Standard per lo scambio di informazioni}
 \textbf{ISO/IEC 61850}
 	\newline\textbf{Device Model}
@@ -269,7 +266,7 @@
 		\item Abstract Communication Service Interface (ACSI)
 			\begin{itemize}[<+- | alert@+>]
 				\item Oggetti e servizi implementati attraverso il protocollo Manufacturing Message Specification (MMS) 
-				%che definisce i messaggi di comunicazione tra i centri di controllo o tra stazioni e centri
+				%Che definisce i messaggi di comunicazione tra i centri di controllo o tra stazioni e centri
 			\end{itemize}
 		\item Linguaggio comune di configurazione per astrazione e standardizzazione
 		\begin{itemize}[<+- | alert@+>]
@@ -290,21 +287,20 @@
 Lo standard si serve dei seguenti strumenti per la gestione delle informazioni
 \begin{itemize}[<+- | alert@+>]
 	\item Generic Substation Event (GSE)
-	%protocollo che fornisce uno strumento veloce ed affidabile per la segnalazione di eventi all’interno della sottostazione. Le caratteristiche principali sono il servizio multicast/broadcast con modello di comunicazione publish/subscribe. I messaggi sono trasmessi in formato binario. GSE prevede due modelli di servizio che prendono il nome di GOOSE e GSSE
+	%Protocollo che fornisce uno strumento veloce ed affidabile per la segnalazione di eventi all’interno della sottostazione. Le caratteristiche principali sono il servizio multicast/broadcast con modello di comunicazione publish/subscribe. I messaggi sono trasmessi in formato binario. GSE prevede due modelli di servizio che prendono il nome di GOOSE e GSSE
 	\begin{itemize}[<+- | alert@+>]
 		\item Generic Object Oriented Substation Event (GOOSE)
 		%Utilizza Virtual LAN, stabilendo più network virtuali sulla stessa rete fisica e determinando livelli di priorità per i messaggi, consentendone anche la ritrasmissione
 		\item Generic Substation State Event (GSSE)
-		%Utilizzato per lo scambio di informazioni sui soli cambiamenti di stato. In questo caso i messaggi sono costituiti da una serie di bit che rap- presentano liste di stati. GSSE necessita un tempo di trasmissione maggiore se confrontato con GOOSE.
+		%Utilizzato per lo scambio di informazioni sui soli cambiamenti di stato. In questo caso i messaggi sono costituiti da una serie di bit che rap- presentano liste di stati. GSSE necessita un tempo di trasmissione maggiore se confrontato con GOOSE
 	\end{itemize}
 	\item Sampled Measured Values (SMV)
-	%Protocollo per lo scambio di dati e la trasmissione di misure prodotte dai trasduttori delle sottostazioni: permette lo scambio di segnali tra gli IED.
+	%Protocollo per lo scambio di dati e la trasmissione di misure prodotte dai trasduttori delle sottostazioni: permette lo scambio di segnali tra gli IED
 	\item Time Synchronization
 	%Servizio di sincronizzazione dei clock fondamentale per applicazioni real-time. Utilizza un subset di Network Time Protocol (NTP) con riferimento allo Universal Coordinated Time (UTC). NTP è il protocollo tipicamente utilizzato per sincronizzare i clock di computer collegati ad Internet e in LAN.
 	\item Report e Logging
-	%REPORT: Strumento che permette di memorizzare i cambiamenti dei dati e degli attributi relativi ai nodi logici. Genera dataset contenenti attributi di interesse e richiede ai nodi logici l’invio delle informazioni riguardanti le variazioni nel sistema.
-	%
-	%LOG: Registrazione degli eventi relativi ad un dispositivo. I log sono registrati in un server e, a differenza dei Report, i dispositivi logici creano al loro interno un database di eventi senza inviarne notifica.
+	%REPORT: Strumento che permette di memorizzare i cambiamenti dei dati e degli attributi relativi ai nodi logici. Genera dataset contenenti attributi di interesse e richiede ai nodi logici l’invio delle informazioni riguardanti le variazioni nel sistema
+	%LOG: Registrazione degli eventi relativi ad un dispositivo. I log sono registrati in un server e, a differenza dei Report, i dispositivi logici creano al loro interno un database di eventi senza inviarne notifica
 \end{itemize}
 \end{frame}
 
@@ -356,16 +352,16 @@ Lo standard si serve dei seguenti strumenti per la gestione delle informazioni
 		\item Spiegazioni di alcuni scenari
 		\item Definizioni di termini
 		\item Definizioni di servizi di sicurezza in comunicazione TCP/IP based
-		%Definisce come possono essere forniti servizi di sicurezza in una comunicazione TCP/IP based e specifica suite di cifratura.
+		%Definisce come possono essere forniti servizi di sicurezza in una comunicazione TCP/IP based e specifica suite di cifratura
 		\item Aumento dei messaggi di sicurezza trasmessi su MMS
-		%Definisce procedure, i miglioramenti del protocollo, e gli algoritmi atti a promuovere l’aumento dei messaggi di sicurezza trasmessi su MMS.
-		%tali procedure sono relative a Transport e Application Layer, basate su TLS, usate in modo da proteggere le informazioni trasmesse
+		%Definisce procedure, i miglioramenti del protocollo, e gli algoritmi atti a promuovere l’aumento dei messaggi di sicurezza trasmessi su MMS
+		%Tali procedure sono relative a Transport e Application Layer, basate su TLS, usate in modo da proteggere le informazioni trasmesse
 		\item Comunicazione seriale
 		%in cui si vanno a definire ulteriori misure di sicurezza per proteggere l’integrità delle connessioni seriali applicando chiavi hash
 		\item ISO/IEC 61850 %profili iso/iec 61850 per la comunicazione non basati su TCP/IP
 		\item Network Management%implementa o estende sistemi di intrusion detection
 		\item Role-Based access control
-		%approccio a sistemi ad accesso ristretto per utenti autorizzati.
+		%Approccio a sistemi ad accesso ristretto per utenti autorizzati.
 		%Tre regole fondamentali sono definite per il modello RBAC: Assegnazione dei ruoli, Autorizzazione dei ruoli, Autorizzazione alla transazione
 	\end{enumerate}
 \end{frame}
