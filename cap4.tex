@@ -24,7 +24,34 @@
 	\end{itemize}
 \end{frame}
 
-\plain{Tecnologie di comunicazione}
+%\plain{Tecnologie di comunicazione}
+
+\begin{frame}{Standard e tecnologie: Sommario}
+	\begin{itemize}
+		\alert<1>{\item Tecnologie di comunicazione}
+		\begin{itemize}
+			\alert<1>{\item IEEE 802}
+			\begin{itemize}
+				\alert<1>{\item Ethernet}
+				\alert<1>{\item Wireless}
+				\alert<1>{\item Bluetooth}
+				\alert<1>{\item ZigBee \& 6LoWPAN}
+				\alert<1>{\item WiMAX}
+			\end{itemize}
+			\alert<1>{\item Power Line Communication}
+		\end{itemize}
+		\item Standard per lo scambio di informazioni
+		\begin{itemize}
+			\item Modbus
+			\item ISO/IEC 61850
+		\end{itemize}
+		\item Standard per la sicurezza
+		\begin{itemize}
+			\item ISO/IEC 62351
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
 \begin{frame}{IEEE 802}
 	\begin{itemize}
 		\item Famiglia di standard sviluppati per il supporto alle reti locali
@@ -245,7 +272,33 @@ La prima specifica fu ratificata il 14 dicembre 2004. La ZigBee Alliance annunci
 	\end{block}
 \end{frame}
 
-\plain{Standard per lo scambio di informazioni}
+%\plain{Standard per lo scambio di informazioni}
+
+\begin{frame}{Standard e tecnologie: Sommario}
+	\begin{itemize}
+		\item Tecnologie di comunicazione
+		\begin{itemize}
+			\item IEEE 802
+			\begin{itemize}
+				\item Ethernet
+				\item Wireless
+				\item Bluetooth
+				\item ZigBee \& 6LoWPAN
+				\item WiMAX
+			\end{itemize}
+			\item Power Line Communication
+		\end{itemize}
+		\alert<1>{\item Standard per lo scambio di informazioni}
+		\begin{itemize}
+			\alert<1>{\item Modbus}
+			\alert<1>{\item ISO/IEC 61850}
+		\end{itemize}
+		\item Standard per la sicurezza
+		\begin{itemize}
+			\item ISO/IEC 62351
+		\end{itemize}
+	\end{itemize}
+\end{frame}
 
 %DNP3
 %Insieme di protocolli di comunicazione utilizzato tra i componenti nei sistemi di automazione
@@ -365,7 +418,33 @@ Lo standard si serve dei seguenti strumenti per la gestione delle informazioni
 \end{itemize}
 \end{frame}
 
-\plain{Standard per la sicurezza}
+%\plain{Standard per la sicurezza}
+
+\begin{frame}{Standard e tecnologie: Sommario}
+	\begin{itemize}
+		\item Tecnologie di comunicazione
+		\begin{itemize}
+			\item IEEE 802
+			\begin{itemize}
+				\item Ethernet
+				\item Wireless
+				\item Bluetooth
+				\item ZigBee \& 6LoWPAN
+				\item WiMAX
+			\end{itemize}
+			\item Power Line Communication
+		\end{itemize}
+		\item Standard per lo scambio di informazioni
+		\begin{itemize}
+			\item Modbus
+			\item ISO/IEC 61850
+		\end{itemize}
+		\alert<1>{\item Standard per la sicurezza}
+		\begin{itemize}
+			\alert<1>{\item ISO/IEC 62351}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
 
 %Di recente invenzione e fondamentali data la grande mole di informazioni sensibili memorizzate sui computer collegati in rete
 %Molte attività si sono automatizzate introducendo maggiore bisogno di affidabilità e sicurezza
@@ -414,17 +493,28 @@ Standard sviluppato nel 1999 dal WG15 facente parte della TC57 dell'organo inter
 	\newline
 	E'suddiviso in 8 parti:
 	\begin{enumerate}[<+- | alert@+>]
-		\item Spiegazioni di alcuni scenari
-		\item Definizioni di termini
-		\item Definizioni di servizi di sicurezza in comunicazione TCP/IP based
+		\item Communication network and system security - Introduction to security issues
+		%Fornisce una introduzione alle restanti parti della serie IEC 62351, in primo luogo per introdurre il lettore a diversi aspetti della sicurezza delle informazioni applicata alle operazioni del power system
+		\item Glossary of terms
+		%Comprende i principali termini utilizzati nella serie IEC 62351, e non vuole essere un elenco definitivo. La maggior parte dei termini utilizzati per la sicurezza informatica sono formalmente definiti da altri organismi e quindi sono inclusi qui con riferimenti a chi li ha definiti
+		\item Communication network and system security - Profiles including TCP/IP
+		%Specifica come fornire riservatezza, il rilevamento di manomissione, e l'autenticazione a livello di messaggio per i protocolli SCADA e di telecontrollo che fanno uso di TCP/IP come message transport layer
 		%Definisce come possono essere forniti servizi di sicurezza in una comunicazione TCP/IP based e specifica suite di cifratura
-		\item Aumento dei messaggi di sicurezza trasmessi su MMS
+		\item Profiles including MMS
 		%Definisce procedure, i miglioramenti del protocollo, e gli algoritmi atti a promuovere l’aumento dei messaggi di sicurezza trasmessi su MMS
 		%Tali procedure sono relative a Transport e Application Layer, basate su TLS, usate in modo da proteggere le informazioni trasmesse
-		\item Comunicazione seriale
-		%in cui si vanno a definire ulteriori misure di sicurezza per proteggere l’integrità delle connessioni seriali applicando chiavi hash
-		\item ISO/IEC 61850 %profili iso/iec 61850 per la comunicazione non basati su TCP/IP
-		\item Network Management%implementa o estende sistemi di intrusion detection
+		\item Security for IEC 60870-5 and derivatives
+		%Specifica messaggi, procedure e algoritmi per la sicurezza delle operazioni dei protocolli basati su IEC 60870-5 e derivati (60870-5-101-104)
+		%IEC 60870-5: Telecontrol Equipment and systems - Part 5: Transmission protocols
+		%
+		%Si vanno a definire ulteriori misure di sicurezza per proteggere l’integrità delle connessioni seriali applicando chiavi hash
+		\item Security for IEC 61850
+		%Specifica messaggi, procedure e algoritmi per garantire il funzionamento di tutti i protocolli basati su 61850 e derivati
+		%Profili 61850 per la comunicazione non basati su TCP/IP
+		\item Network and system management (NSM) data object models
+		%Definisce i data object model (NSM) specifici per il funzionamento del sistema di alimentazione
+		%Questi data object NSM sono utilizzati per monitorare la salute delle reti e dei sistemi, per rilevare eventuali intrusioni, e per gestire le prestazioni e l'affidabilità dell'infrastruttura relativa alle informazioni
+		%implementa o estende sistemi di intrusion detection
 		\item Role-Based access control
 		%Approccio a sistemi ad accesso ristretto per utenti autorizzati.
 		%Tre regole fondamentali sono definite per il modello RBAC: Assegnazione dei ruoli, Autorizzazione dei ruoli, Autorizzazione alla transazione
