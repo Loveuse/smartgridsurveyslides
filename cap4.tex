@@ -1,3 +1,29 @@
+\begin{frame}{Standard e tecnologie: Sommario}
+	\begin{itemize}
+		\item Tecnologie di comunicazione
+		\begin{itemize}
+			\item IEEE 802
+			\begin{itemize}
+				\item Ethernet
+				\item Wireless
+				\item Bluetooth
+				\item ZigBee \& 6LoWPAN
+				\item WiMAX
+			\end{itemize}
+			\item Power Line Communication
+		\end{itemize}
+		\item Standard per lo scambio di informazioni
+		\begin{itemize}
+			\item Modbus
+			\item ISO/IEC 61850
+		\end{itemize}
+		\item Standard per la sicurezza
+		\begin{itemize}
+			\item ISO/IEC 62351
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
 \plain{Tecnologie di comunicazione}
 \begin{frame}{IEEE 802}
 	\begin{itemize}
@@ -14,19 +40,26 @@
 %I Bridge limitano i domini di collisione mentre i Router limitano entrambi i domini
 \begin{frame}{IEEE 802[.3]}
 	\textbf{Ethernet}
+	\begin{block}{}
+		Xerox Corporation, Intel Corporation e la Digital Equipment Corporation nel 1978 portarono alla standardizzazione di 802.3 e nel 1980 ci fu la pubblicazione della versione 1.0 dello standard Ethernet
+	\end{block}
 	\begin{itemize}
 		\item Una tra le tecnologie di rete più utilizzate per le LAN cablate
 		\item Frame-based
 		\item Utilizza un mezzo condiviso (collisioni gestite da \textit{CSMA/CD})
 	\end{itemize}
 	\begin{figure}[h] 
-		\includegraphics[scale=0.23,cfbox=blue_slides 1pt 0pt]{imgs/lan.png}
+		\includegraphics[scale=0.15,cfbox=blue_slides 1pt 0pt]{imgs/lan.png}
 	\end{figure}
 \end{frame}
 
 
 \begin{frame}{IEEE 802[.11]}
 	\textbf{Wireless}
+	\begin{block}{}
+	Vic Hayes è stato coinvolto nella progettazione degli standard 802.11a e 802.11b  all'interno di IEEE nel settembre del 1999
+	\end{block}
+	\pause
 	\begin{itemize}[<+- | alert@+>]
 		\item Definisce un insieme di standard per le Wireless LAN
 		\item Utilizza un mezzo condiviso (collisioni gestite da \textit{CSMA/CA})
@@ -65,6 +98,10 @@
 	
 \begin{frame}{IEEE 802[.15.1]}
 	\textbf{Bluetooth}
+	\begin{block}{}
+		Inventato da Ericsson nel 1994, originariamente concepito come un' alternativa senza fili ai cavi RS-232
+	\end{block}
+	\pause
 	\begin{itemize}[<+- | alert@+>]
 		\item Tecnologia wireless progettata per collegare dispositivi mobili o fissi
 			\begin{itemize}[<+- | alert@+>]
@@ -114,6 +151,9 @@
 
 \begin{frame}{IEEE 802[.15.4]}
 \textbf{ZigBee}
+\begin{block}{}
+La prima specifica fu ratificata il 14 dicembre 2004. La ZigBee Alliance annuncia la disponibilità della specifica 1.0 il 13 giugno 2005%alla quale successivamente vennero rilasciate due versioni nel 2007.
+\end{block}
 %Considerata come una buona opzione per il metering e per la gestione dell’energia ideale in implementazioni Smart Grid data la semplicità, mobilità, robustezza e i bassi costi di sviluppo.
 %Problematiche: basse capacità elaborative, piccola dimensione della memoria e interferenze.
 \begin{itemize}
@@ -133,7 +173,7 @@
 	\end{itemize}
 \end{itemize}
 	\begin{figure}[h] 
-		\includegraphics[scale=0.3,cfbox=blue_slides 1pt 0pt]{imgs/zbprot.png}
+		\includegraphics[scale=0.2,cfbox=blue_slides 1pt 0pt]{imgs/zbprot.png}
 		%\caption{Architettura protocollare di ZigBee}
 	\end{figure}
 \end{frame}
@@ -143,6 +183,9 @@
 %RFD -> FFD(router) nella stessa WPAN -> gateway 6LoWPAN che inoltrerà al dispositivo destinatario tramite IP
 \begin{frame}{IEEE 802[.15.4]}
 	\textbf{6LoWPAN}
+	\begin{block}{}
+		Il gruppo di lavoro IETF 6LoWPAN è stato approvato nel marzo del 2005. Nel 2009 la ZigBee Alliance ha annunciato l'integrazione di ZigBee con 6LoWPAN
+	\end{block}
 	\begin{itemize}
 		\item Consente l'invio e la ricezione di pacchetti \textit{IPv6}
 		\item E' stato inserito un Adaptation Layer per il collegamento tra lo strato \textit{MAC} e il \textit{Network Layer IPv6}
@@ -154,6 +197,10 @@
 
 \begin{frame}{IEEE 802[.16]}
 	\textbf{WiMAX}
+	\begin{block}{}
+		Prima pubblicazione effettuata dal WiMAX Forum l'8 aprile del 2002 con lo standard IEEE 802.16-2001
+	\end{block}
+	\pause
 	\begin{itemize}[<+- | alert@+>]
 		\item Tecnologia wireless adatta a trasmissione sia di tipo urbano che rurale
 		\item Implementa diverse tecniche di crittografia, sicurezza ed autenticazione
@@ -177,6 +224,12 @@
 %Sono utilizzate tre tecnologie di comunicazione che prendono il nome di narrowband transmission, spread-spectrum transmission e DSP-processed narrowband transmission
 \begin{frame}{Power line}
 	\textbf{Power Line Communication}
+	\begin{block}{}
+	I primi standard sono stati progettati nel 2001 dalla Homeplug Powerline Alliance
+	%l'Homeplug 1.0 e l'HomePlug 1.0 Turbo, per trasferire dati a una velocità teorica rispettivamente di 15 e 85 Mbit/secondo
+	%Dopo alcuni anni di competizione serrata sugli standard, i due standard al di sopra i 200 Mbs sono confluiti in un unico standard internazionale IEEE P1901 Powerline AV, cui rispondono ormai tutti i prodotti in commercio come HPAV Powerline HomePlug AV
+	\end{block}
+	\pause
 	\begin{itemize}[<+- | alert@+>]
 		\item Tecnologia di rete proposta per la trasmissione in ambiente Smart Grid
 		\item Trasporto informazioni su conduttori e linee elettriche %risparmio dal punto di vista di creazione dell'infrastruttura
@@ -203,9 +256,13 @@
 
 \begin{frame}{Standard per lo scambio di informazioni}
 	\textbf{Modbus}
+	\begin{block}{}
+	Protocollo creato nel 1979 da Modicon (azienda ora parte del gruppo \textbf{\color{blue_slides}Schneider Electric})
+	\end{block}
+	\pause
 	\begin{itemize}[<+- | alert@+>]
 		\item Protocollo di messaggistica (\textit{Application Layer})%risiede nell’Application Layer e consente la comunicazione tra i dispositivi collegati su diversi bus e reti
-		\item Dispositivi collegati su diversi bus e reti
+		\item Dispositivi collegati su diversi bus e reti%protocollo utilizzato per mettere in comunicazione i controllori logici programmabili
 		\item Ethernet su fibra ottica con trasmissione seriale asincrona%EIA 232, EIA 422, EIA 485
 		\item Automazione delle substation%Modbus su EIA 485
 		\item Comunicazione
@@ -221,6 +278,10 @@
 %Generalmente, questi protocolli girano su reti TCP/IP o LAN con switch Ethernet molto performanti per rispondere ai requisiti stringenti dei dispositivi, che necessitano di tempi di risposta inferiori a 4-5 millisecondi.
 \begin{frame}{Standard per lo scambio di informazioni}
 	\textbf{ISO/IEC 61850}
+	\begin{block}{}
+		Un gruppo IEC di 60 membri si è diviso in 3 gruppi di lavoro per la creazione di ISO/IEC 61850 nell'1995
+	\end{block}
+	\pause
 	\begin{itemize}[<+- | alert@+>]
 		\item Progettazione dei sistemi di automazione per le substation
 		\item Sovrastruttura che coordina e gestisce protocolli e tecnologie esistenti
@@ -331,8 +392,12 @@ Lo standard si serve dei seguenti strumenti per la gestione delle informazioni
 
 \begin{frame}{Standard per la sicurezza}
 \textbf{ISO/IEC 62351}
+\begin{block}{}
+Standard sviluppato nel 1999 dal WG15 facente parte della TC57 dell'organo internazionale IEC
+\end{block}
+\pause
 \begin{block}{Obiettivi di sicurezza}
-\begin{itemize}[<+- | alert@+>]
+\begin{itemize}
 	\item Autenticazione nel processo di trasferimento di dati tramite firma digitale
 	\item Garanzia di accessi esclusivamente dopo autenticazione
 	\item Prevenzione dell'\textbf{\color{blue_slides}eavesdropping}%ossia intercettazioni della comunicazione non autorizzate
