@@ -1,5 +1,31 @@
-%- Parkerian Hexag
-%- Threats and impacts: un esempio per ogni caso
+\begin{frame}{Sommario}
+\begin{itemize}
+\item Stuxnet
+\item Definire la sicurezza
+	\begin{itemize}
+	\item Confidentiality
+	\item Integrity
+	\item Availability
+	\item Control
+	\item Authenticity
+	\item Usability
+	\end{itemize}
+\item Building blocks
+	\begin{itemize}
+		\item Layered security model
+		\item Authentication
+		\item Authorization
+		\item Auditing
+		\item Key management
+		\item Message, Network and System integrity
+	\end{itemize}
+\item Threats and impacts
+	\begin{itemize}
+		\item Consumer threats
+		\item Utility companies threats
+	\end{itemize}
+\end{itemize}
+\end{frame}
 
 %Definire un worm
 %Diffusione inconsapevole
@@ -19,7 +45,7 @@
   \end{itemize}
   \pause
   \begin{block}{}
-  Stuxnet è stato creato e diffuso dal governo USA in collaborazione col governo Israeliano nella centrale iraniana di Natanz
+  Stuxnet è stato creato dal governo USA in collaborazione col governo Israeliano e diffuso nella centrale iraniana di Natanz
   \end{block}
   \pause
    \begin{block}{Scopo}
@@ -41,7 +67,6 @@
 
 \plain{Definire la sicurezza}
 
-%magari su parkerian hexad parlare delle successive slides senza scriverle
 \begin{frame}
   \frametitle{Definire la sicurezza: Parkerian hexad}
   	\begin{figure}[h] 
@@ -50,64 +75,64 @@
 	\end{figure}
 \end{frame}
 
-%\begin{frame}
-%  \frametitle{Definire la sicurezza}
-%  \textbf{Confidentiality}
-%  	\begin{itemize}[<+- | alert@+>]
-%  		\item Dati confidenziali $\rightarrow$ se noti, potrebbero causare danni alla sicurezza delle operazioni di tutto il sistema
-%  		\item Informazioni ricavate dal lavoro delle componenti della Smart Grid
-%  		\item Dati personali dei clienti $\rightarrow$ garantire la \textit{privacy}
-%  		\item Informazioni aziendali
-%  		\item Punti che introducono rischio: locazioni di memoria e meccanismi di trasmissione dati
-%  		\item Soluzioni: cifratura dei dati e controllo degli accessi
-%  	\end{itemize}
-%  %\end{itemize}
-%\end{frame}
-%
-%\begin{frame}
-%  \frametitle{Definire la sicurezza}
-%   \textbf{Integrity}
-%  	\begin{itemize}[<+- | alert@+>]
-%  	\item Abilità del sistema di evitare che le informazioni siano modificate da persone o da sistemi non autorizzati
-%  	\item Mancanza di integrity $\rightarrow$ il sistema riceve dati non accurati $\rightarrow$ instabilità della Smart Grid
-%  	\item Punti che introducono rischio: componenti in cui si consente il passaggio dati da un sistema ad un altro
-%  	\item Soluzioni: \textit{auditing}, \textit{authorization}, \textit{nonrepudiation}, \textit{message-signing}
-%  	\end{itemize}
-%\end{frame}
-%
-%\begin{frame}
-%  \frametitle{Definire la sicurezza}
-%   \textbf{Availability}
-%  	\begin{itemize}[<+- | alert@+>]
-%  	\item Capacità del sistema di compiere il lavoro che gli è stato assegnato, nel momento in cui se ne ha bisogno 
-%  	\item Punti che introducono rischio: qualsiasi sistema, rete, dispositivo che gestisce le comunicazioni e che si trova a dover effettuare l'inoltro di un comando da un’estremità del sistema ad un’altra
-%  	\item Soluzioni: tecniche di ridondanza
-%  	\end{itemize}
-%  	\pause
-%   \textbf{Control (o Possession)}
-%  	\begin{itemize}[<+- | alert@+>]
-%  	\item Capacità di controllare le informazioni che necessitano protezione
-%  	\item Mancanza di controllo dati $\rightarrow$  compromissione del sistema che li trasmette $\rightarrow$ provenienza delle informazioni non garantita $\rightarrow$ diminuzione dell'affidabilità di quest'ultime
-%  	\end{itemize}
-%\end{frame}
-%
-%\begin{frame}
-%  \frametitle{Definire la sicurezza}
-%   \textbf{Authenticity}
-%  	\begin{itemize}[<+- | alert@+>]
-%  	\item Processo utilizzato per descrivere la certezza della provenienza
-%  	\item Assicurarsi che la fonte dei dati e i dati stessi siano autentici
-%  	\end{itemize}
-%  	\pause
-%  \textbf{Usability (o Utility)}
-%  \begin{itemize}[<+- | alert@+>]
-%  \item Assicurare che i dati siano utilizzabili
-%  \item Flusso di dati cifrato $\rightarrow$ garantisce la sicurezza ma rende difficile far sì che le informazioni siano utili
-%  \item Usabilità fornisce valore a livello aziendale $\rightarrow$ trattato come il requisito a più alta priorità
-%  \end{itemize}
-%\end{frame}
+\begin{frame}
+  \frametitle{Definire la sicurezza}
+  \textbf{Confidentiality}
+  	\begin{itemize}[<+- | alert@+>]
+  		\item Dati confidenziali $\rightarrow$ se noti, potrebbero causare danni alla sicurezza delle operazioni di tutto il sistema
+  		\item Informazioni ricavate dal lavoro delle componenti della Smart Grid
+  		\item Dati personali dei clienti $\rightarrow$ garantire la \textit{privacy}
+  		\item Informazioni aziendali
+  		\item Punti che introducono rischio: locazioni di memoria e meccanismi di trasmissione dati
+  		\item Soluzioni: cifratura dei dati e controllo degli accessi
+  	\end{itemize}
+  %\end{itemize}
+\end{frame}
 
-\plain{Building blocks} %una slide con l'elenco e spiegare a voce e magari lasciare quelle sull'integrity
+\begin{frame}
+  \frametitle{Definire la sicurezza}
+   \textbf{Integrity}
+  	\begin{itemize}[<+- | alert@+>]
+  	\item Abilità del sistema di evitare che le informazioni siano modificate da persone o da sistemi non autorizzati
+  	\item Mancanza di integrity $\rightarrow$ il sistema riceve dati non accurati $\rightarrow$ instabilità della Smart Grid
+  	\item Punti che introducono rischio: componenti in cui si consente il passaggio dati da un sistema ad un altro
+  	\item Soluzioni: \textit{auditing}, \textit{authorization}, \textit{nonrepudiation}, \textit{message-signing}
+  	\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Definire la sicurezza}
+   \textbf{Availability}
+  	\begin{itemize}[<+- | alert@+>]
+  	\item Capacità del sistema di compiere il lavoro che gli è stato assegnato, nel momento in cui se ne ha bisogno 
+  	\item Punti che introducono rischio: sistema che gestisce le comunicazioni e l'inoltro di comandi
+  	\item Soluzioni: tecniche di ridondanza
+  	\end{itemize}
+  	\pause
+   \textbf{Control (o Possession)}
+  	\begin{itemize}[<+- | alert@+>]
+  	\item Capacità di controllare le informazioni che necessitano protezione
+  	\item Mancanza di controllo dati $\rightarrow$  compromissione del sistema che li trasmette $\rightarrow$ provenienza delle informazioni non garantita $\rightarrow$ diminuzione dell'affidabilità
+  	\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Definire la sicurezza}
+   \textbf{Authenticity}
+  	\begin{itemize}[<+- | alert@+>]
+  	\item Processo utilizzato per descrivere la certezza della provenienza
+  	\item Assicurarsi che la fonte dei dati e i dati stessi siano autentici
+  	\end{itemize}
+  	\pause
+  \textbf{Usability (o Utility)}
+  \begin{itemize}[<+- | alert@+>]
+  \item Assicurare che i dati siano utilizzabili
+  \item Flusso di dati cifrato $\rightarrow$ garantisce la sicurezza ma rende difficile far sì che le informazioni siano utili
+  \item Usabilità fornisce valore a livello aziendale $\rightarrow$ trattato come il requisito a più alta priorità
+  \end{itemize}
+\end{frame}
+
+\plain{Building blocks}
 
 \begin{frame}
   \frametitle{Building blocks}
@@ -127,40 +152,37 @@
 \end{frame}
 
 
-%magari togliere per tutti il puntino più esterno
 \begin{frame}
   \frametitle{Building blocks}
   \begin{itemize}[<+- | alert@+>]
   \item Authentication
-%  \begin{itemize}[<+- | alert@+>]
-%  \item Processo di verifica dell'identità di una persona o di un servizio che richiede l'accesso ad una risorsa
-%  \item Autenticazione non solo per l'utente ma anche tra sistemi, processi o componenti hardware
-%  \end{itemize}
+  \begin{itemize}[<+- | alert@+>]
+  \item Verifica dell'identità di una persona o di un servizio che richiede l'accesso ad una risorsa
+  \item Autenticazione non solo per l'utente ma anche tra sistemi, processi o componenti hardware
+  \end{itemize}
  \item Authorization
-% 	\begin{itemize}
-% 		\item Verifica di ciò che la persona o il servizio autenticato può fare all'interno del contesto del sistema
-% 	\end{itemize}
-	\item Auditing
-	\item Key management
+ 	\begin{itemize}
+ 		\item Verifica di ciò che la persona o il servizio autenticato può fare all'interno del contesto del sistema
+ 	\end{itemize}
   \end{itemize}
 \end{frame}
 
-%\begin{frame}
-%  \frametitle{Building blocks}
-%  \begin{itemize}[<+- | alert@+>]
-%  \item \textit{Auditing}
-%  \begin{itemize}
-%  \item Revisione periodica dell'efficacia dei meccanismi di sicurezza della Smart Grid
-%  \item Testing delle componenti essenziali per mettere in sicurezza le operazioni
-%  \end{itemize}
-% \item \textit{Key management}
-% 	\begin{itemize}
-% 		\item Processo di gestione dell'emissione delle chiavi per utenti, applicazioni e dispositivi
-% 		\item Utilizzate per stabilire l'identità dell'utente e garantire l'integrità dei messaggi
-% 		\item Impiego di Public Key Infrastructure
-% 	\end{itemize}
-%  \end{itemize}
-%\end{frame}
+\begin{frame}
+  \frametitle{Building blocks}
+  \begin{itemize}[<+- | alert@+>]
+  \item Auditing
+  \begin{itemize}
+  \item Revisione periodica dell'efficacia dei meccanismi di sicurezza della Smart Grid
+  \item Testing delle componenti essenziali per mettere in sicurezza le operazioni
+  \end{itemize}
+ \item Key management
+ 	\begin{itemize}
+ 		\item Gestione dell'emissione delle chiavi per utenti, applicazioni e dispositivi
+ 		\item Stabilire l'identità dell'utente e garantire l'integrità dei messaggi
+ 		\item Impiego di Public Key Infrastructure
+ 	\end{itemize}
+  \end{itemize}
+\end{frame}
 
 \begin{frame}
   \frametitle{Building blocks}
@@ -200,7 +222,7 @@
   \end{itemize}
 \end{frame}
 
-\plain{Threats and Impacts}%minacce una slide
+\plain{Threats and Impacts}
 
 \begin{frame}
   \frametitle{Threats and Impacts: Consumer threats}
