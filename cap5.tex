@@ -52,28 +52,31 @@
 \begin{frame}{Principali vulnerabilità delle Smart Grid: Security Testing}
 \textbf{Internet Technology Security}
 	\begin{itemize}[<+- | alert@+>]
-		\item Kali Linux
-		\item Wireshark
+		\item Penetration Testing
 		\begin{itemize}
-			\item Network Surveying
+			\item Kali Linux
 		\end{itemize}
-		\item Nmap
+		\item Network Surveying
 		\begin{itemize}
-			\item Port Scanning
-			\item Services Identification
-			\item System Identification
-			\begin{itemize}
-				\item Vulnerability Research and Verification
-			\end{itemize}
-			\item Denial of Service Testing
+			\item Wireshark
 		\end{itemize}
-		\item Nessus
+		\item Port Scanning
 		\begin{itemize}
-			\item Internet Application Testing
+			\item Nmap
 		\end{itemize}
-		\item Metasploit
+		\item Services Identification
+		\item System Identification
 		\begin{itemize}
-			\item Exploit Testing
+			\item Vulnerability Research and Verification
+		\end{itemize}
+		\item Denial of Service Testing
+		\item Internet Application Testing
+		\begin{itemize}
+			\item Nessus
+		\end{itemize}
+		\item Exploit Testing
+		\begin{itemize}
+			\item Metasploit
 		\end{itemize}
 	\end{itemize}
 \end{frame}
@@ -135,28 +138,26 @@
 % opzionale %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
 \textbf{Modello Matematico}
-\begin{itemize}[<+- | alert@+>]
-	\item Vettore delle misurazioni
-	\begin{itemize}
-		\item $\textbf{z} = \textbf{h(x)} + \textbf{e}$
+	\begin{block}{Vettore delle misurazioni} % vorrei mettere tipo l'alert
+		$\textbf{z} = \textbf{h(x)} + \textbf{e}$
 		\begin{itemize}
-			\item $\textbf{h(x)}$: relazione non lineare tra le misure $\textbf{z}$ e lo stato del sistema $\textbf{x}$
+			\item $\textbf{h(x)}$: relazione non lineare tra le misure $\textbf{z}$
+			\item $\textbf{x}$: stato del sistema
 			\item $\textbf{e} = [e_1, \ldots, e_m]^T$, rumore Gaussiano delle misure
-			\item Matrice di covarianza $\Sigma_e$
 		\end{itemize}
-	\item $\textbf{H} \in {\rm I\!R}$, definito come
-	\begin{itemize}
-		\item $\textbf{H}=\frac{\partial\textbf{h(x)}}{\partial\textbf{x}}|_{x=0}$
-	\end{itemize}
-	\end{itemize}
-	\item Modello di approssimazione lineare della misura di corrente
-	\begin{itemize}
-		\item Misura sotto Operazioni Normali: $\textbf{z} =  \textbf{Hx} + \textbf{e}$
+	\end{block}
+	\pause
+	\begin{block}{Modello di approssimazione lineare della misura di corrente}
+		Misura sotto Operazioni Normali: $\textbf{z} =  \textbf{Hx} + \textbf{e}$
 		\begin{itemize}
 			\item Vettore di stato stimato: $\widehat{\textbf{x}} = (\textbf{H}^T\sum_e^{-1}\textbf{H})-1\textbf{H}^T\sum_e^{-1}\textbf{z}$
+			\item $\textbf{H} \in {\rm I\!R}$, definito come
+			\begin{itemize}
+				\item $\textbf{H}=\frac{\partial\textbf{h(x)}}{\partial\textbf{x}}|_{x=0}$
+			\end{itemize}
+			\item Matrice di covarianza $\Sigma_e$
 		\end{itemize}
-	\end{itemize}
-	\end{itemize}
+	\end{block}
 \end{frame}
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
