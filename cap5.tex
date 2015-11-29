@@ -215,13 +215,19 @@
 		\item L'attaccante può avere profitti da questa manipolazione del mercato
 		%è in grado di predire come si comporteranno gli utenti alla ricezione del nuovo prezzo e quindi sono in grado di cambiare il prezzo della corrente quando e come vogliono.
 	\end{enumerate}
-	\pause
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: Jamming}
 	\begin{block}{Contromisure}
 		Evitare di modificare il consumo di energia in maniera simultanea.\newline
-		\textbf{\color{blue_slides}IDEA: } ci si basa su protocolli come Aloha e CSMA e sulla randomness intrinseca del \textbf{\color{blue_slides}mercato}
+		\textbf{\color{blue_slides}IDEA: } ci si basa su protocolli come Aloha e CSMA
+	\end{block}
+	\pause
+	\begin{block}{}
+	Si utilizza uno schema in cui un consumer sceglie un tempo casuale per cambiare la propria power response evitando che l'attaccante possa predire il comportamento dell'utente e quindi capire in che modo varia il prezzo della corrente
+		%randomness: perchè i consumi sono in base alle esigenze e tendono a variare da persona a persona
 		%utilizzando backoff casuali per evitare collisioni dovute a trasmissioni simultanee
 		%schema di backoff casuale: un consumer sceglie un tempo casuale per cambiare la propria power response
-		%
 		%si diffondono info relative ai cambiamenti in un intervallo di tempo piu ampio cosicchè la randomness del mercato possa contrattaccare i cambiamenti dei jammed user
 	\end{block}
 \end{frame}
