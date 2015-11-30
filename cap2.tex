@@ -27,7 +27,7 @@
 % Premises Networks: include rete dei consumatori 
 % si utilizza una combinazione di internet e reti proprietarie per la comunicazione 
 % net di net di info e sys di sys
-% applicazioni di un dominio devono poter comunicare con altre di altri domini rispetto requisiti di sicurezza (confidentiality, integrity ecc. Compromissioni di una rete non deve compromettere le altre)
+% applicazioni di un dominio devonocollegati poter comunicare con altre di altri domini rispetto requisiti di sicurezza (confidentiality, integrity ecc. Compromissioni di una rete non deve compromettere le altre)
 
 % ISO is an Independent System Operator and an RTO is a Regional Transmission Organization
 \begin{frame}[fragile]{Architettura}
@@ -74,6 +74,20 @@
 			\item Misura, colleziona, analizza il consumo energetico e comunica con gli smart device
 		\end{itemize}			
 	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Customer} 
+	\vspace{-20pt}
+	\begin{figure}[h] 
+		\includegraphics[scale=0.35]{imgs/smcom2.png}
+	\end{figure}
+	\begin{block}{Data Concentrator}
+		\begin{itemize}[<+- | alert@+>]
+			\item Dispositivo elettronico che si pone fra gli smart meter e gateway
+			\item Gestisce e controlla gli smart meter collegati ad esso
+			\item Punto di aggregazione delle misurazioni effettuate dagli smart meter
+		\end{itemize}
+	\end{block}
 \end{frame}
 
 %%% MARKETS %%% 
