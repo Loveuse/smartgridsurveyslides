@@ -111,6 +111,12 @@
 	\end{itemize}
 \end{frame}
 
+\begin{frame}{Principali vulnerabilità delle Smart Grid: comunicazione tra data aggregator e smart meter}
+	\begin{figure}[h] 
+		\includegraphics[scale=0.3,cfbox=blue_slides 1pt 0pt]{imgs/aggregator.jpg}
+	\end{figure}
+\end{frame}
+
 \begin{frame}{Principali vulnerabilità delle Smart Grid: Open Smart Grid Protocol}
 	\begin{itemize}[<+- | alert@+>]
 		\item Sviluppato da European Telecommunications Standards Institute (ETSI), 2011
@@ -126,21 +132,8 @@
 		\end{itemize}
 	\end{itemize}
 \end{frame}
-\begin{frame}{Principali vulnerabilità delle Smart Grid: Open Smart Grid Protocol}
-	\begin{itemize}[<+- | alert@+>]
-		\item Sviluppato da European Telecommunications Standards Institute (ETSI), 2011
-		\item Comunicazione Smart meter $\leftrightarrow$ Aggregatore su Powerline
-		\item Protocollo leggero
-		\begin{itemize}
-			\item Paga in sicurezza
-		\end{itemize}
-		\item Stream cipher RC4 - Ron Rivest, 1987 (mai pubblicato uff.)
-		\begin{itemize}
-			\item Periodicità nei primi 256 byte
-			\item Forte correlazione fra chiave e keystream (\textit{Breaking 104 bit WEP in less than 60 seconds})
-		\end{itemize}
-	\end{itemize}
-\end{frame}
+
+
 \begin{frame}{Principali vulnerabilità delle Smart Grid: sommario}
 	\begin{itemize}
 		\item Security Testing
