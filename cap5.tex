@@ -23,34 +23,53 @@
 	\end{itemize}
 \end{frame}
 
-%\begin{frame}{Principali vulnerabilità delle Smart Grid: attacchi e contromisure}
-%	\begin{itemize}[<+- | alert@+>]
-%		\item Security Testing
-%		\item Open Smart Grid Protocol
-%		\item False Data Injection
-%		\item Disconnect Attack
-%		\item Jamming
-%	\end{itemize}
-%\end{frame}
+\begin{frame}{Principali vulnerabilità delle Smart Grid: sommario}
+	\begin{itemize}
+		\item Security Testing
+		\item Open Smart Grid Protocol
+		\item False Data Injection
+		\item Disconnect Attack
+		\item Jamming
+	\end{itemize}
+\end{frame}
 
-\plain{Security Testing}
+\begin{frame}{Principali vulnerabilità delle Smart Grid: sommario}
+	\begin{itemize}
+		\alert<1>{\item Security Testing}
+		\item Open Smart Grid Protocol
+		\item False Data Injection
+		\item Disconnect Attack
+		\item Jamming
+	\end{itemize}
+\end{frame}
 
-\begin{frame}{Principali vulnerabilità delle Smart Grid: Security Testing}
-		\textbf{Institute for Security and Open Methodologies (ISECOM)}
-		\begin{block}{Open Source Security Testing Methodology Manual (OSSTMM)}
-			\begin{itemize}
-				\item Information Security
-				\item Process Security
-				\item \textbf{Internet Technology Security}
-				\item Communications Security
-				\item Wireless Security
-				\item Physical Security
-			\end{itemize}
-			\end{block}
+\begin{frame}{Principali vulnerabilità delle Smart Grid: dispositivi smart}
+	\begin{block}{Smart Devices}
+		\begin{itemize}
+			\item Dispositivi capaci di computare e comunicare
+			\item Godono di tutte le feature di un tipico dispositivo connesso alla rete
+			\item Possono essere soggetti ad attacchi
+		\end{itemize}
+	\end{block}
 \end{frame}
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: Security Testing}
-\textbf{Internet Technology Security}
+	\textbf{Institute for Security and Open Methodologies (ISECOM)}
+	\begin{block}{Open Source Security Testing Methodology Manual (OSSTMM)}
+		\begin{itemize}
+			\item Information Security
+			\item Process Security
+			\item \textbf{Internet Technology Security}
+			\item Communications Security
+			\item Wireless Security
+			\item Physical Security
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: Security Testing}
+\begin{block}{Internet Technology Security}
 	\begin{itemize}[<+- | alert@+>]
 		\item Penetration Testing
 		\begin{itemize}
@@ -60,16 +79,16 @@
 		\begin{itemize}
 			\item Wireshark
 		\end{itemize}
-		\item Port Scanning
+		\item Port Scanning, Services/System Identification, DoS Testing
 		\begin{itemize}
 			\item Nmap
 		\end{itemize}
-		\item Services Identification
-		\item System Identification
-		\begin{itemize}
-			\item Vulnerability Research and Verification
-		\end{itemize}
-		\item Denial of Service Testing
+%		\item  Identification
+%		\item System Identification
+%		\begin{itemize}
+%			\item Vulnerability Research and Verification
+%		\end{itemize}
+%		\item Denial of Service Testing
 		\item Internet Application Testing
 		\begin{itemize}
 			\item Nessus
@@ -79,12 +98,22 @@
 			\item Metasploit
 		\end{itemize}
 	\end{itemize}
+\end{block}
 \end{frame}
 
-\plain{Open Smart Grid Protocol}
+\begin{frame}{Principali vulnerabilità delle Smart Grid: sommario}
+	\begin{itemize}
+		\item Security Testing
+		\alert<1>{\item Open Smart Grid Protocol}
+		\item False Data Injection
+		\item Disconnect Attack
+		\item Jamming
+	\end{itemize}
+\end{frame}
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: Open Smart Grid Protocol}
 	\begin{itemize}[<+- | alert@+>]
+		\item Sviluppato da European Telecommunications Standards Institute (ETSI), 2011
 		\item Comunicazione Smart meter $\leftrightarrow$ Aggregatore su Powerline
 		\item Protocollo leggero
 		\begin{itemize}
@@ -95,20 +124,32 @@
 			\item Periodicità nei primi 256 byte
 			\item Forte correlazione fra chiave e keystream (\textit{Breaking 104 bit WEP in less than 60 seconds})
 		\end{itemize}
-		\item Funzione di digest lineare
+	\end{itemize}
+\end{frame}
+\begin{frame}{Principali vulnerabilità delle Smart Grid: Open Smart Grid Protocol}
+	\begin{itemize}[<+- | alert@+>]
+		\item Sviluppato da European Telecommunications Standards Institute (ETSI), 2011
+		\item Comunicazione Smart meter $\leftrightarrow$ Aggregatore su Powerline
+		\item Protocollo leggero
 		\begin{itemize}
-			\item Ricomputazione del digest corretto senza il bisogno di cifratura
-			\item Soggetta ad attacchi \textit{man-in-the-middle}
+			\item Paga in sicurezza
 		\end{itemize}
-		\item Secure Broadcast
+		\item Stream cipher RC4 - Ron Rivest, 1987 (mai pubblicato uff.)
 		\begin{itemize}
-			\item Sicurezza non nota
-			\item Aggiornamenti firmware
+			\item Periodicità nei primi 256 byte
+			\item Forte correlazione fra chiave e keystream (\textit{Breaking 104 bit WEP in less than 60 seconds})
 		\end{itemize}
 	\end{itemize}
 \end{frame}
-
-\plain{False Data Injection}
+\begin{frame}{Principali vulnerabilità delle Smart Grid: sommario}
+	\begin{itemize}
+		\item Security Testing
+		\item Open Smart Grid Protocol
+		\alert<1>{\item False Data Injection}
+		\item Disconnect Attack
+		\item Jamming
+	\end{itemize}
+\end{frame}
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: False Data Injection}
 	\begin{itemize}[<+- | alert@+>]
@@ -177,7 +218,15 @@
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\plain{Disconnect Attack}
+\begin{frame}{Principali vulnerabilità delle Smart Grid: sommario}
+	\begin{itemize}
+		\item Security Testing
+		\item Open Smart Grid Protocol
+		\item False Data Injection
+		\alert<1>{\item Disconnect Attack}
+		\item Jamming
+	\end{itemize}
+\end{frame}
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: Disconnect Attack}
 	\begin{itemize}[<+- | alert@+>]
@@ -191,7 +240,15 @@
 	\end{itemize}
 \end{frame}
 
-\plain{Jamming}
+\begin{frame}{Principali vulnerabilità delle Smart Grid: sommario}
+	\begin{itemize}
+		\item Security Testing
+		\item Open Smart Grid Protocol
+		\item False Data Injection
+		\item Disconnect Attack
+		\alert<1>{\item Jamming}
+	\end{itemize}
+\end{frame}
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: Jamming}
 	\begin{block}{}
@@ -220,11 +277,11 @@
 \begin{frame}{Principali vulnerabilità delle Smart Grid: Jamming}
 	\begin{block}{Contromisure}
 		Evitare di modificare il consumo di energia in maniera simultanea.\newline
-		\textbf{\color{blue_slides}IDEA: } ci si basa su protocolli come Aloha e CSMA
+		\textbf{\color{blue_slides}IDEA: si utilizza uno schema di \emph{backoff}} 
 	\end{block}
 	\pause
 	\begin{block}{}
-	Si utilizza uno schema in cui un consumer sceglie un tempo casuale per cambiare la propria power response evitando che l'attaccante possa predire il comportamento dell'utente e quindi capire in che modo varia il prezzo della corrente
+	Un consumer sceglie un tempo casuale per cambiare la propria power response evitando che l'attaccante possa predire il comportamento dell'utente e quindi capire in che modo varia il prezzo della corrente
 		%randomness: perchè i consumi sono in base alle esigenze e tendono a variare da persona a persona
 		%utilizzando backoff casuali per evitare collisioni dovute a trasmissioni simultanee
 		%schema di backoff casuale: un consumer sceglie un tempo casuale per cambiare la propria power response
