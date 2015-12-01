@@ -211,54 +211,29 @@
 \end{frame}
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authentication}
-	\textbf{Request}	
-	\begin{itemize}[<+- | alert@+>]
-		\item Formato
-			\small{
-				\begin{table}[!h]
-					\centering
-					\begin{tabular}{|l|l|l|}
-						\hline
-						Request & Sequence (4 byte) & Digest (8 byte) \\ \hline
-					\end{tabular}
-				\end{table}
-			}
-		\vspace{5pt}
-		\item Digest con OMAK su
-			\small{
-				\begin{table}[!h]
-					\centering
-					\begin{tabular}{|l|l|l|l|}
-						\hline
-						Subnet (1 byte) & Node (1 byte) & Request & Sequence\\ \hline
-					\end{tabular}
-				\end{table}
-			}
-	\end{itemize}
-	\pause	
-	\textbf{Response}
-	\begin{itemize}[<+- | alert@+>]
-		\item Formato 
-			\small{				
-				\begin{table}[!h]
-					\centering
-					\begin{tabular}{|l|l|l|}
-						\hline
-						Response & Digest (8 byte)\\ \hline
-					\end{tabular}
-				\end{table}
-			}
-		\item Digest con OMAK su
-			\footnotesize{			
-				\begin{table}[!h]
-					\centering
-				\hspace*{-25pt}\begin{tabular}{|l|l|l|l|l|l|}
-						\hline
-						Subnet (1 byte) & Node (1 byte) & Request & Sequence & Response & Response Length \\ \hline % response length (1 byte)
-					\end{tabular}
-				\end{table}
-			}
-	\end{itemize}
+	\textbf{Request}\newline
+		Formato
+		\begin{figure}[t]
+		\includegraphics[scale=0.35,cfbox=blue_slides 1pt 0pt]{imgs/req1.png}
+		\end{figure}
+		\pause
+		Digest con OMAK su
+		\begin{figure}[t]
+			\includegraphics[scale=0.35,cfbox=blue_slides 1pt 0pt]{imgs/req2.png}
+		\end{figure}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authentication}
+	\textbf{Response}\newline
+		Formato
+		\begin{figure}[t]
+			\includegraphics[scale=0.35,cfbox=blue_slides 1pt 0pt]{imgs/res1.png}
+		\end{figure}
+		\pause
+		Digest con OMAK su
+		\begin{figure}[t]
+			\includegraphics[scale=0.28,cfbox=blue_slides 1pt 0pt]{imgs/res2.png}
+		\end{figure}
 \end{frame}
 
 % Subnet e Node si riferiscono sempre a subnet/node del target della richiesta. Stesso indirizzo in entrambe le direzioni. 
