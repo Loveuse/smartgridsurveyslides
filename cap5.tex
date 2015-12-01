@@ -222,16 +222,17 @@
 	\begin{itemize}
 	\item Bad Data Injection
 	\begin{itemize}
-		\item Misura sotto attacco non stealth: $\textbf{z}^\prime = \textbf{H}(\textbf{x}) + \textbf{b} + e$
+		\item Misura sotto attacco non stealth: $\textbf{z}^\prime = \textbf{H}(\textbf{x})\footnotemark[1] + \textbf{b} + e$
 		\item Vettore residuo: $\textbf{r} = \textbf{z} - \textbf{H}\widehat{\textbf{x}}$
 		\item Rilevamento bad data: $max_i(|\textbf{r}_i|/\sqrt{cov(\textbf{r})}) \geq \gamma$
 	\end{itemize}
 	\item Stealth Bad Data Injection
 	\begin{itemize}
-		\item Misura sotto attacco stealth: $\textbf{z}^\prime = \textbf{H}(\textbf{x} + \delta\textbf{x}) + e$
+		\item Misura sotto attacco stealth: $\textbf{z}^\prime = \textbf{H}(\textbf{x} + \delta\textbf{x})\footnotemark[1] + e$
 		\item Non rilevabile usando meccanismi a soglia
 	\end{itemize}
 \end{itemize}
+\footnotetext[1]{Si intende: \emph{matrice} $\times$ \emph{vettore}}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
