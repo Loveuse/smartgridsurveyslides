@@ -198,7 +198,72 @@
 	\end{itemize}
 \end{frame}
 
-%%%AUTHENTICATION
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authentication}
+	\begin{itemize}[<+- | alert@+>]
+		\item Data concentrator utilizza autenticazione basata su digest a livello applicativo per autenticare messaggi tra i dispositivi
+		\item Viene aggiunto ai messaggi un \emph{sequence number} e se ne effettua il digest, evitando così \emph{replay attack}
+		\item Ogni device sceglie un sequence number $N$ ed accetta solo messaggi aventi sequence number compreso tra $N-1$ e $N+8$
+		% per i restanti manda una response NACK contenente il messaggio "invalid sequence number" seguita dal sequence number desiderato -> il data concentrator deve usare tale numero
+		\item Tutti i dati dei device sono protetti dall’autenticazione basata su digest al livello applicativo sia per operazioni di lettura che di scrittura
+		%include: Configurazione di un dispositivo OSGP, Fatturazioni e profili di carico OSGP, Richieste di cancellazione del carico, Time setting
+
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authentication}
+	\textbf{Request}	
+	\begin{itemize}[<+- | alert@+>]
+		\item Formato
+			\small{
+				\begin{table}[!h]
+					\centering
+					\begin{tabular}{|l|l|l|}
+						\hline
+						Request & Sequence (4 byte) & Digest (8 byte) \\ \hline
+					\end{tabular}
+				\end{table}
+			}
+		\vspace{5pt}
+		\item Digest con OMAK su
+			\small{
+				\begin{table}[!h]
+					\centering
+					\begin{tabular}{|l|l|l|l|}
+						\hline
+						Subnet (1 byte) & Node (1 byte) & Request & Sequence\\ \hline
+					\end{tabular}
+				\end{table}
+			}
+	\end{itemize}
+	\pause	
+	\textbf{Response}
+	\begin{itemize}[<+- | alert@+>]
+		\item Formato 
+			\small{				
+				\begin{table}[!h]
+					\centering
+					\begin{tabular}{|l|l|l|}
+						\hline
+						Response & Digest (8 byte)\\ \hline
+					\end{tabular}
+				\end{table}
+			}
+		\item Digest con OMAK su
+			\footnotesize{			
+				\begin{table}[!h]
+					\centering
+				\hspace*{-25pt}\begin{tabular}{|l|l|l|l|l|l|}
+						\hline
+						Subnet (1 byte) & Node (1 byte) & Request & Sequence & Response & Response Length \\ \hline % response length (1 byte)
+					\end{tabular}
+				\end{table}
+			}
+	\end{itemize}
+\end{frame}
+
+% Subnet e Node si riferiscono sempre a subnet/node del target della richiesta. Stesso indirizzo in entrambe le direzioni. 
+% Request e Sequence fanno riferimento sempre ai valori nel messaggio di richiesta originale.
+
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: Open Smart Grid Protocol}
 	\begin{itemize}
