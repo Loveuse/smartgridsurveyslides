@@ -163,6 +163,7 @@
 \end{frame}
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: Open Smart Grid Protocol}
+	\textbf{Fasi del protocollo OSGP}
 	\begin{itemize}
 		\item Setup
 		\item Authentication
@@ -171,6 +172,7 @@
 \end{frame}
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: Open Smart Grid Protocol}
+	\textbf{Fasi del protocollo OSGP}
 	\begin{itemize}
 		\alert<1>{\item Setup}
 		\item Authentication
@@ -191,6 +193,7 @@
 \end{frame}
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: Open Smart Grid Protocol}
+	\textbf{Fasi del protocollo OSGP}
 	\begin{itemize}
 		\item Setup
 		\alert<1>{\item Authentication}
@@ -210,37 +213,38 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authentication}
-	\textbf{Request}\newline
-		Formato
-		\begin{figure}[t]
-		\includegraphics[scale=0.35,cfbox=blue_slides 1pt 0pt]{imgs/req1.png}
-		\end{figure}
-		\pause
-		Digest con OMAK su
-		\begin{figure}[t]
-			\includegraphics[scale=0.35,cfbox=blue_slides 1pt 0pt]{imgs/req2.png}
-		\end{figure}
-\end{frame}
-
-\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authentication}
-	\textbf{Response}\newline
-		Formato
-		\begin{figure}[t]
-			\includegraphics[scale=0.35,cfbox=blue_slides 1pt 0pt]{imgs/res1.png}
-		\end{figure}
-		\pause
-		Digest con OMAK su
-		\begin{figure}[t]
-			\includegraphics[scale=0.28,cfbox=blue_slides 1pt 0pt]{imgs/res2.png}
-		\end{figure}
-\end{frame}
+%\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authentication}
+%	\textbf{Request}\newline
+%		Formato
+%		\begin{figure}[t]
+%		\includegraphics[scale=0.35,cfbox=blue_slides 1pt 0pt]{imgs/req1.png}
+%		\end{figure}
+%		\pause
+%		Digest con OMAK su
+%		\begin{figure}[t]
+%			\includegraphics[scale=0.35,cfbox=blue_slides 1pt 0pt]{imgs/req2.png}
+%		\end{figure}
+%\end{frame}
+%
+%\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authentication}
+%	\textbf{Response}\newline
+%		Formato
+%		\begin{figure}[t]
+%			\includegraphics[scale=0.35,cfbox=blue_slides 1pt 0pt]{imgs/res1.png}
+%		\end{figure}
+%		\pause
+%		Digest con OMAK su
+%		\begin{figure}[t]
+%			\includegraphics[scale=0.28,cfbox=blue_slides 1pt 0pt]{imgs/res2.png}
+%		\end{figure}
+%\end{frame}
 
 % Subnet e Node si riferiscono sempre a subnet/node del target della richiesta. Stesso indirizzo in entrambe le direzioni. 
 % Request e Sequence fanno riferimento sempre ai valori nel messaggio di richiesta originale.
 
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: Open Smart Grid Protocol}
+	\textbf{Fasi del protocollo OSGP}
 	\begin{itemize}
 		\item Setup
 		\item Authentication
@@ -248,7 +252,7 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Encryption Scheme}
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
 	\begin{figure}[t]
 		\includegraphics[scale=0.25,cfbox=blue_slides 1pt 0pt]{imgs/osgp.png}
 	\end{figure}
@@ -326,17 +330,17 @@
 	\begin{itemize}
 	\item Bad Data Injection
 	\begin{itemize}
-		\item Misura sotto attacco non stealth: $\textbf{z}^\prime = \textbf{H}(\textbf{x})\footnotemark[1] + \textbf{b} + e$
+		\item Misura sotto attacco non stealth: $\textbf{z}^\prime = \textbf{H}(\textbf{x}) + \textbf{b} + e$
 		\item Vettore residuo: $\textbf{r} = \textbf{z} - \textbf{H}\widehat{\textbf{x}}$
 		\item Rilevamento bad data: $max_i(|\textbf{r}_i|/\sqrt{cov(\textbf{r})}) \geq \gamma$
 	\end{itemize}
 	\item Stealth Bad Data Injection
 	\begin{itemize}
-		\item Misura sotto attacco stealth: $\textbf{z}^\prime = \textbf{H}(\textbf{x} + \delta\textbf{x})\footnotemark[1] + e$
+		\item Misura sotto attacco stealth: $\textbf{z}^\prime = \textbf{H}(\textbf{x} + \delta\textbf{x}) + e$
 		\item Non rilevabile usando meccanismi a soglia
 	\end{itemize}
 \end{itemize}
-\footnotetext[1]{Si intende: \emph{matrice} $\times$ \emph{vettore}}
+\let\thefootnote\relax\footnote{$\textbf{H}(\textbf{x})$ e $\textbf{H}(\textbf{x} + \delta\textbf{x})$ sono prodotti $matrice \times vettore$}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -384,7 +388,7 @@
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: Jamming}
 	\textbf{Attacco}\\
-	{\small [Husheng Li and Zhu Han, \emph{Manipulating the Electricity Power Market via Jamming the Price Signaling in Smart Grid} (2011)]}
+	{\small [Li, Husheng, and Zhu Han. ``Manipulating the electricity power market via jamming the price signaling in smart grid.'' \emph{GLOBECOM Workshops (GC Wkshps), 2011 IEEE}. IEEE, 2011.]}
 	\begin{enumerate}[<+- | alert@+>]
 		\item L'attaccante fa Jamming in un'area molto popolata
 		\item L'utente rimane a conoscenza del vecchio prezzo della corrente
