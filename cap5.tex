@@ -120,23 +120,10 @@
 \begin{frame}{Principali vulnerabilità delle Smart Grid: Open Smart Grid Protocol}
 	\begin{itemize}[<+- | alert@+>]
 		\item Sviluppato da European Telecommunications Standards Institute (ETSI), 2011
-		\item Comunicazione Smart meter $\leftrightarrow$ Aggregatore su Powerline
-	\end{itemize}
-	\begin{figure}[h] 
-		\includegraphics[scale=0.15,cfbox=blue_slides 1pt 0pt]{imgs/aggregator.jpg}
-	\end{figure}
-\end{frame}
-
-\begin{frame}{Principali vulnerabilità delle Smart Grid: Open Smart Grid Protocol}
-	\begin{itemize}[<+- | alert@+>]
-		\item Protocollo leggero
-		\begin{itemize}
-			\item Paga in sicurezza
-		\end{itemize}
-		\item Stream cipher RC4 - Ron Rivest, 1987 (mai pubblicato uff.)
-		\begin{itemize}
-			\item Periodicità nei primi 256 byte
-			\item Forte correlazione fra chiave e keystream (\textit{Breaking 104 bit WEP in less than 60 seconds})
+		\item Comunicazione su Powerline tra Data Concentrator (Aggregatore) e Smart meter
+		\begin{itemize} 
+			\item Protocollo Master-Slave: Master (Aggregatore) - Slave (Smart Meter)
+			\item Ogni Aggregatore ha una zona di competenza a cui afferisce un certo numero di Smart Meter
 		\end{itemize}
 	\end{itemize}
 	\begin{figure}[h] 
@@ -144,9 +131,26 @@
 	\end{figure}
 \end{frame}
 
+%\begin{frame}{Principali vulnerabilità delle Smart Grid: Open Smart Grid Protocol}
+%	\begin{itemize}[<+- | alert@+>]
+%		\item Protocollo leggero
+%		\begin{itemize}
+%			\item Paga in sicurezza
+%		\end{itemize}
+%		\item Stream cipher RC4 - Ron Rivest, 1987 (mai pubblicato uff.)
+%		\begin{itemize}
+%			\item Periodicità nei primi 256 byte
+%			\item Forte correlazione fra chiave e keystream (\textit{Breaking 104 bit WEP in less than 60 seconds})
+%		\end{itemize}
+%	\end{itemize}
+%	\begin{figure}[h] 
+%		\includegraphics[scale=0.15,cfbox=blue_slides 1pt 0pt]{imgs/aggregator.jpg}
+%	\end{figure}
+%\end{frame}
+
 \begin{frame}{Principali vulnerabilità delle Smart Grid: Open Smart Grid Protocol}
 	\begin{itemize}[<+- | alert@+>]
-		\item Fornisce misure per proteggere la \emph{privacy} dei clienti
+		\item Fornisce meccanismi per proteggere la \emph{privacy} dei clienti
 		\begin{itemize}[<+- | alert@+>]
 			\item Restringendo l'accesso ai dati e cifrandoli evitando accessi non autorizzati
 		\end{itemize}
@@ -166,8 +170,7 @@
 	\textbf{Fasi del protocollo OSGP}
 	\begin{itemize}
 		\item Setup
-		\item Authentication
-		\item Encryption
+		\item Communication with Authenticated Encryption
 	\end{itemize}
 \end{frame}
 
@@ -175,43 +178,119 @@
 	\textbf{Fasi del protocollo OSGP}
 	\begin{itemize}
 		\alert<1>{\item Setup}
-		\item Authentication
-		\item Encryption
+		\item Communication with Authenticated Encryption
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Setup}
 	\begin{itemize}[<+- | alert@+>]
-		\item Processo di produzione degli OSGP device
+		\item Processo di produzione del device OSGP
 		\begin{itemize}
-			\item I dispositivi vengono configurati con una Open Media Access Key (OMAK) univoca a 96 bit
+			\item Il dispositivo è configurato con una Open Media Access Key (OMAK) univoca a 96 bit
 			%chiave principale/di riferimento del dispositivo
 		\end{itemize}
-		\item Le OMAK sono trasmesse alle società di servizi in modo tale da essere utilizzate dal data concentrator
-		\item L'OMAK dei device viene sostituita da una shared OMAK inviata dal data concentrator dopo aver scoperto la presenza dei device
+		\item La chiave OMAK del device è consegnata alla società di servizi su supporto di memorizzazione
+		\item La società di servizi provvede a dotare il Data Concentrator della chiave OMAK del dispositivo afferente alla zona di competenza
 	\end{itemize}
 \end{frame}
-
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Setup}
+	\begin{itemize}[<+- | alert@+>]
+		\item Il Data Concentrator è in grado di rilevare ogni dispositivo a lui afferente grazie ad un processo di discovery
+		\item Il Data Concentrator invia una Shared Key relativa alla sua zona di competenza ad ogni nuovo dispositivo scoperto
+		\begin{itemize}
+			\item Comunicazione cifrata utilizzando la OMAK del dispositivo
+		\end{itemize}
+		\item Ogni dispositivo rimpiazza la sua OMAK originaria con la Shared Key ricevuta
+	\end{itemize}
+\end{frame}
 \begin{frame}{Principali vulnerabilità delle Smart Grid: Open Smart Grid Protocol}
 	\textbf{Fasi del protocollo OSGP}
 	\begin{itemize}
 		\item Setup
-		\alert<1>{\item Authentication}
-		\item Encryption
+		\alert<1>{\item Communication with Authenticated Encryption}
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authentication}
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Communication with Authenticated Encryption}
 	\begin{itemize}[<+- | alert@+>]
-		\item Data concentrator utilizza autenticazione basata su digest a livello applicativo per autenticare messaggi tra i dispositivi
-		\item Viene aggiunto ai messaggi un \emph{sequence number} e se ne effettua il digest, evitando così \emph{replay attack}
-		\item Ogni device sceglie un sequence number $N$ ed accetta solo messaggi aventi sequence number compreso tra $N-1$ e $N+8$
-		% per i restanti manda una response NACK contenente il messaggio "invalid sequence number" seguita dal sequence number desiderato -> il data concentrator deve usare tale numero
-		\item Tutti i dati dei device sono protetti dall’autenticazione basata su digest al livello applicativo sia per operazioni di lettura che di scrittura
-		%include: Configurazione di un dispositivo OSGP, Fatturazioni e profili di carico OSGP, Richieste di cancellazione del carico, Time setting
-
+		\item Comunicazione iniziata dal Data Concentrator (Master)
+		\item Data Concentrator invia messaggio di richiesta allo Smart Meter (Slave)
+		\item Smart Meter decifra il messaggio, ne verifica l'autenticità e invia la risposta
+		\item Richiesta e risposta cifrate con Shared Key
 	\end{itemize}
 \end{frame}
+
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Communication with Authenticated Encryption}
+	\textbf{Building Blocks}
+	\begin{itemize}
+		\item Protocollo EN14908
+		\item Funzione OMADigest
+		\item Protocollo RC4
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Communication with Authenticated Encryption}
+	\textbf{Parametri dello schema di cifratura}
+	\begin{itemize}[<+- | alert@+>]
+		\item Costanti
+		\begin{itemize}
+			\item $x_0 = \{${\tt 81, 3F, 52, 9A, 7B, E3, 89, BA}$\}$, 64 bit
+			\item $x_1 = \{${\tt 72, B0, 91, 8D, 44, 05, AA, 57}$\}$, 64 bit
+		\end{itemize}
+		\item Shared Key $k = k_1 \| k_0$
+		\begin{itemize}
+			\item $k$, 96 bit
+			\item $k_1$, 48 bit
+			\item $k_0$, 48 bit
+		\end{itemize}
+		\item Base Encryption Key (BEK) $k^{\prime} = k_1^{\prime} \| k_0^{\prime}$
+		\begin{itemize}
+			\item $k^{\prime}$, 128 bit
+			\item $k_1^{\prime} \gets EN14908(k_1,\,x_1)$, 64 bit
+			\item $k_0^{\prime} \gets EN14908(k_0,\,x_0)$, 64 bit
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Communication with Authenticated Encryption}
+	\textbf{Parametri dello schema di cifratura}
+	\begin{itemize}[<+- | alert@+>]
+		\item Messaggio $m$
+		\item Sequence number $n$
+		\begin{itemize}
+			\item Generato in maniera casuale al primo avvio del device
+			\item Incrementato dopo ogni messaggio scambiato
+			\item Inviato insieme al messaggio
+			\item Utilizzato nella funzione OMADigest
+			\item Usato dal ricevitore per verificare la validità del messaggio
+			\begin{itemize}
+				\item Messaggio valido se $n \in [n-1, n+8]$
+				\item In caso contrario, inviato messaggio cifrato contenente il sequence number corrente $n$
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Communication with Authenticated Encryption}
+	\textbf{Parametri dello schema di cifratura}
+	\begin{itemize}
+		\item Tag di autenticazione $t \gets OMADigest(k_1\|k_0,\,m\|n)$, 64 bit
+		\item Ciphertext $c \gets RC4(k^{\prime} \oplus 0^{64}\|t,\,m\|n)$
+	\end{itemize}
+\end{frame}
+
+%\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authentication}
+%	\begin{itemize}[<+- | alert@+>]
+%		\item Data concentrator utilizza autenticazione basata su digest a livello applicativo per autenticare messaggi tra i dispositivi
+%		\item Viene aggiunto ai messaggi un \emph{sequence number} e se ne effettua il digest, evitando così \emph{replay attack}
+%		\item Ogni device sceglie un sequence number $N$ ed accetta solo messaggi aventi sequence number compreso tra $N-1$ e $N+8$
+%		% per i restanti manda una response NACK contenente il messaggio "invalid sequence number" seguita dal sequence number desiderato -> il data concentrator deve usare tale numero
+%		\item Tutti i dati dei device sono protetti dall’autenticazione basata su digest al livello applicativo sia per operazioni di lettura che di scrittura
+%		%include: Configurazione di un dispositivo OSGP, Fatturazioni e profili di carico OSGP, Richieste di cancellazione del carico, Time setting
+%
+%	\end{itemize}
+%\end{frame}
 
 %\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authentication}
 %	\textbf{Request}\newline
@@ -241,16 +320,6 @@
 
 % Subnet e Node si riferiscono sempre a subnet/node del target della richiesta. Stesso indirizzo in entrambe le direzioni. 
 % Request e Sequence fanno riferimento sempre ai valori nel messaggio di richiesta originale.
-
-
-\begin{frame}{Principali vulnerabilità delle Smart Grid: Open Smart Grid Protocol}
-	\textbf{Fasi del protocollo OSGP}
-	\begin{itemize}
-		\item Setup
-		\item Authentication
-		\alert<1>{\item Encryption}
-	\end{itemize}
-\end{frame}
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
 	\begin{figure}[t]
