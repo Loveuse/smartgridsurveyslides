@@ -131,23 +131,6 @@
 	\end{figure}
 \end{frame}
 
-%\begin{frame}{Principali vulnerabilità delle Smart Grid: Open Smart Grid Protocol}
-%	\begin{itemize}[<+- | alert@+>]
-%		\item Protocollo leggero
-%		\begin{itemize}
-%			\item Paga in sicurezza
-%		\end{itemize}
-%		\item Stream cipher RC4 - Ron Rivest, 1987 (mai pubblicato uff.)
-%		\begin{itemize}
-%			\item Periodicità nei primi 256 byte
-%			\item Forte correlazione fra chiave e keystream (\textit{Breaking 104 bit WEP in less than 60 seconds})
-%		\end{itemize}
-%	\end{itemize}
-%	\begin{figure}[h] 
-%		\includegraphics[scale=0.15,cfbox=blue_slides 1pt 0pt]{imgs/aggregator.jpg}
-%	\end{figure}
-%\end{frame}
-
 \begin{frame}{Principali vulnerabilità delle Smart Grid: Open Smart Grid Protocol}
 	\begin{itemize}[<+- | alert@+>]
 		\item Fornisce meccanismi per proteggere la \emph{privacy} dei clienti
@@ -220,41 +203,33 @@
 	\end{itemize}
 \end{frame}
 
-
-\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Communication with Authenticated Encryption}
-	\textbf{Building Blocks}
-	\begin{itemize}
-		\item Protocollo EN14908
-		\item Funzione OMADigest
-		\item Protocollo RC4
-	\end{itemize}
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
+	\textbf{Schema di cifratura}
+	\begin{figure}[h] 
+		\includegraphics[scale=0.4,cfbox=blue_slides 1pt 0pt]{imgs/c_scheme.png}
+	\end{figure}
 \end{frame}
 
-\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Communication with Authenticated Encryption}
-	\textbf{Parametri dello schema di cifratura}
-	\begin{itemize}[<+- | alert@+>]
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
+	\textbf{Parametri di input dello schema di cifratura}
+	\begin{itemize}
 		\item Costanti
 		\begin{itemize}
 			\item $x_0 = \{${\tt 81, 3F, 52, 9A, 7B, E3, 89, BA}$\}$, 64 bit
 			\item $x_1 = \{${\tt 72, B0, 91, 8D, 44, 05, AA, 57}$\}$, 64 bit
 		\end{itemize}
+		\pause
 		\item Shared Key $k = k_1 \| k_0$
 		\begin{itemize}
 			\item $k$, 96 bit
 			\item $k_1$, 48 bit
 			\item $k_0$, 48 bit
 		\end{itemize}
-		\item Base Encryption Key (BEK) $k^{\prime} = k_1^{\prime} \| k_0^{\prime}$
-		\begin{itemize}
-			\item $k^{\prime}$, 128 bit
-			\item $k_1^{\prime} \gets EN14908(k_1,\,x_1)$, 64 bit
-			\item $k_0^{\prime} \gets EN14908(k_0,\,x_0)$, 64 bit
-		\end{itemize}
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Communication with Authenticated Encryption}
-	\textbf{Parametri dello schema di cifratura}
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
+	\textbf{Parametri di input dello schema di cifratura}
 	\begin{itemize}[<+- | alert@+>]
 		\item Messaggio $m$
 		\item Sequence number $n$
@@ -262,23 +237,97 @@
 			\item Generato in maniera casuale al primo avvio del device
 			\item Incrementato dopo ogni messaggio scambiato
 			\item Inviato insieme al messaggio
-			\item Utilizzato nella funzione OMADigest
+			%\item Utilizzato nella funzione OMADigest
 			\item Usato dal ricevitore per verificare la validità del messaggio
 			\begin{itemize}
 				\item Messaggio valido se $n \in [n-1, n+8]$
-				\item In caso contrario, inviato messaggio cifrato contenente il sequence number corrente $n$
+				\item In caso contrario, il ricevitore invia messaggio cifrato contenente il sequence number corrente $n$
 			\end{itemize}
 		\end{itemize}
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Communication with Authenticated Encryption}
-	\textbf{Parametri dello schema di cifratura}
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
+	\textbf{Parametri di output dello schema di cifratura}
 	\begin{itemize}
-		\item Tag di autenticazione $t \gets OMADigest(k_1\|k_0,\,m\|n)$, 64 bit
-		\item Ciphertext $c \gets RC4(k^{\prime} \oplus 0^{64}\|t,\,m\|n)$
+		\item Tag di autenticazione $t$% \gets OMADigest(k_1\|k_0,\,m\|n)$, 64 bit
+		\item Ciphertext $c$% \gets RC4(k^{\prime} \oplus 0^{64}\|t,\,m\|n)$
 	\end{itemize}
 \end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
+	\textbf{Building Blocks dello schema di cifratura autenticata}
+	\begin{itemize}
+		\item Protocollo EN14908
+		\item Funzione OMADigest
+		\item Algoritmo di cifratura RC4
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
+	\textbf{Building Blocks dello schema di cifratura autenticata}
+	\begin{itemize}
+		\alert<1>{\item Protocollo EN14908}
+		\item Funzione OMADigest
+		\item Algoritmo di cifratura RC4
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
+	\textbf{Protocollo EN14908}\\
+	Setup iniziale con valore scelto in maniera casuale
+	\begin{figure}[h] 
+		\includegraphics[scale=0.3,cfbox=blue_slides 1pt 0pt]{imgs/EN14908.png}
+	\end{figure}
+	Base Encryption Key (BEK) $k^{\prime} = k_1^{\prime} \| k_0^{\prime}$
+		\begin{itemize}
+			\item $k^{\prime}$, 128 bit
+			\item $k_1^{\prime} \gets EN14908(k_1,\,x_1)$, 64 bit
+			\item $k_0^{\prime} \gets EN14908(k_0,\,x_0)$, 64 bit
+		\end{itemize}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
+	\textbf{Building Blocks dello schema di cifratura autenticata}
+	\begin{itemize}
+		\item Protocollo EN14908
+		\alert<1>{\item Funzione OMADigest}
+		\item Algoritmo di cifratura RC4
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
+	\textbf{Funzione OMADigest}
+	\begin{figure}[h] 
+		\includegraphics[scale=0.4,cfbox=blue_slides 1pt 0pt]{imgs/OMADigest.png}
+	\end{figure}
+	\begin{itemize}
+		\item Messaggio $m$
+		\item Sequence number $n$
+		\item Shared Key $k = k_1 \| k_0$
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
+	\textbf{Building Blocks dello schema di cifratura autenticata}
+	\begin{itemize}
+		\item Protocollo EN14908
+		\item Funzione OMADigest
+		\alert<1>{\item Algoritmo di cifratura RC4}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
+	\textbf{Algoritmo di cifratura RC4}
+	\begin{itemize}[<+- | alert@+>]
+		\item Stream cipher RC4 - Ron Rivest, 1987 (mai pubblicato uff.)
+		\begin{itemize}
+			\item Periodicità nei primi 256 byte
+			\item Forte correlazione fra chiave e keystream (\textit{Breaking 104 bit WEP in less than 60 seconds})
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
 
 %\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authentication}
 %	\begin{itemize}[<+- | alert@+>]
@@ -323,16 +372,22 @@
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
 	\begin{figure}[t]
-		\includegraphics[scale=0.25,cfbox=blue_slides 1pt 0pt]{imgs/osgp.png}
+		\includegraphics[scale=0.35,cfbox=blue_slides 1pt 0pt]{imgs/osgp.png}
 	\end{figure}
-	\only<1>{Costante $x_0 = \{${\tt 81, 3F, 52, 9A, 7B, E3, 89, BA}$\}$}
-	\only<2>{Costante $x_1 = \{${\tt 72, B0, 91, 8D, 44, 05, AA, 57}$\}$}
-	\only<3>{Open Media Access Key (OMAK) univoca per dispositivo: $k = k_1 \| k_0$}
-	\only<4>{$m$: messaggio}
-	\only<5>{$n$: numero di sequenza}
-	\only<6>{$t$: tag di autenticazione}
-	\only<7>{Base Encryption Key (BEK) $k^\prime = k^{\prime}_{1} \| k^{\prime}_{0}$}
-	\only<8>{$c$: ciphertex}
+	{$t \gets OMADigest(k_1\|k_0,\,m\|n)$, 64 bit}\\
+	{$c \gets RC4(k^{\prime} \oplus 0^{64}\|t,\,m\|n)$}
+%	\only<1>{Costante $x_0 = \{${\tt 81, 3F, 52, 9A, 7B, E3, 89, BA}$\}$}
+%	\only<2>{Costante $x_1 = \{${\tt 72, B0, 91, 8D, 44, 05, AA, 57}$\}$}
+%	\only<3>{Open Media Access Key (OMAK) univoca per dispositivo: $k = k_1 \| k_0$}
+%	\only<4>{$m$: messaggio}
+%	\only<5>{$n$: numero di sequenza}
+%	\only<6>{$t$: tag di autenticazione}
+%	\only<7>{Base Encryption Key (BEK) $k^\prime = k^{\prime}_{1} \| k^{\prime}_{0}$}
+%	\only<8>{$c$: ciphertex}
+\end{frame}
+
+\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
+	%ULTIMA SLIDE PER MARCO.
 \end{frame}
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: sommario}
