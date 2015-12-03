@@ -172,14 +172,14 @@
 			\item Il dispositivo è configurato con una Open Media Access Key (OMAK) univoca a 96 bit
 			%chiave principale/di riferimento del dispositivo
 		\end{itemize}
-		\item La chiave OMAK del device è consegnata alla società di servizi su supporto di memorizzazione
-		\item La società di servizi provvede a dotare il Data Concentrator della chiave OMAK del dispositivo afferente alla zona di competenza
+		\item La chiave OMAK del device è consegnata alla società di servizi
+		\item La società di servizi provvede a dotare il proprio Data Concentrator della chiave OMAK del dispositivo afferente alla zona di competenza
 	\end{itemize}
 \end{frame}
 \begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Setup}
 	\begin{itemize}[<+- | alert@+>]
 		\item Il Data Concentrator è in grado di rilevare ogni dispositivo a lui afferente grazie ad un processo di discovery
-		\item Il Data Concentrator invia una Shared Key relativa alla sua zona di competenza ad ogni nuovo dispositivo scoperto
+		\item Il Data Concentrator genera ed invia la Shared Key relativa alla sua zona di competenza ad ogni nuovo dispositivo scoperto
 		\begin{itemize}
 			\item Comunicazione cifrata utilizzando la OMAK del dispositivo
 		\end{itemize}
@@ -200,6 +200,9 @@
 		\item Data Concentrator invia messaggio di richiesta allo Smart Meter (Slave)
 		\item Smart Meter decifra il messaggio, ne verifica l'autenticità e invia la risposta
 		\item Richiesta e risposta cifrate con Shared Key
+		\begin{itemize}
+			\item Smart Meter e Data Concentrator sono identificati dai campi Subnet e Node ID del pacchetto di richiesta/risposta
+		\end{itemize}
 	\end{itemize}
 \end{frame}
 
@@ -209,51 +212,116 @@
 		\includegraphics[scale=0.4,cfbox=blue_slides 1pt 0pt]{imgs/c_scheme.png}
 	\end{figure}
 \end{frame}
-
 \begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
-	\textbf{Parametri di input dello schema di cifratura}
+	\textbf{Schema di cifratura: parametri di input}
+	\begin{figure}[h] 
+		\includegraphics[scale=0.25,cfbox=blue_slides 1pt 0pt]{imgs/c_scheme.png}
+	\end{figure}
 	\begin{itemize}
-		\item Costanti
+		\only<1>{\item Costanti
 		\begin{itemize}
-			\item $x_0 = \{${\tt 81, 3F, 52, 9A, 7B, E3, 89, BA}$\}$, 64 bit
-			\item $x_1 = \{${\tt 72, B0, 91, 8D, 44, 05, AA, 57}$\}$, 64 bit
-		\end{itemize}
-		\pause
-		\item Shared Key $k = k_1 \| k_0$
+			\item $x_0 = \{${\tt 81, 3F, 52, 9A, 7B, E3, 89, BA}$\}$
+			\item $x_1 = \{${\tt 72, B0, 91, 8D, 44, 05, AA, 57}$\}$
+		\end{itemize}}
+		\only<2>{\item Shared Key $k = k_1 \| k_0$
 		\begin{itemize}
-			\item $k$, 96 bit
-			\item $k_1$, 48 bit
-			\item $k_0$, 48 bit
-		\end{itemize}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
-	\textbf{Parametri di input dello schema di cifratura}
-	\begin{itemize}[<+- | alert@+>]
-		\item Messaggio $m$
-		\item Sequence number $n$
-		\begin{itemize}
-			\item Generato in maniera casuale al primo avvio del device
-			\item Incrementato dopo ogni messaggio scambiato
-			\item Inviato insieme al messaggio
-			%\item Utilizzato nella funzione OMADigest
-			\item Usato dal ricevitore per verificare la validità del messaggio
+			\item $k$
+			\item $k_1$
+			\item $k_0$
+		\end{itemize}}
+		\only<3>{\item Messaggio $m$}
+		\only<4>{\item Sequence number $n$
 			\begin{itemize}
-				\item Messaggio valido se $n \in [n-1, n+8]$
-				\item In caso contrario, il ricevitore invia messaggio cifrato contenente il sequence number corrente $n$
-			\end{itemize}
-		\end{itemize}
+				\item Generato in maniera casuale al primo avvio del device
+				\item Incrementato dopo ogni messaggio scambiato
+				\item Inviato insieme al messaggio
+				%\item Utilizzato nella funzione OMADigest
+				\item Usato dal ricevitore per verificare la validità del messaggio
+				\begin{itemize}
+					\item Messaggio valido se $n$ ricevuto $\in [n-1, n+8]$
+					\item In caso contrario, il ricevitore invia messaggio cifrato contenente il sequence number $n$ corrente del device
+				\end{itemize}
+			\end{itemize}}
 	\end{itemize}
 \end{frame}
-
+\item Tag di autenticazione $t$% \gets OMADigest(k_1\|k_0,\,m\|n)$, 64 bit
+\item Ciphertext $c$% \gets RC4(k^{\prime} \oplus 0^{64}\|t,\,m\|n)$
 \begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
-	\textbf{Parametri di output dello schema di cifratura}
+	\textbf{Schema di cifratura: parametri di input}
+	\begin{figure}[h] 
+		\includegraphics[scale=0.25,cfbox=blue_slides 1pt 0pt]{imgs/c_scheme.png}
+	\end{figure}
 	\begin{itemize}
-		\item Tag di autenticazione $t$% \gets OMADigest(k_1\|k_0,\,m\|n)$, 64 bit
-		\item Ciphertext $c$% \gets RC4(k^{\prime} \oplus 0^{64}\|t,\,m\|n)$
-	\end{itemize}
-\end{frame}
+		\only<1>{\item Costanti
+			\begin{itemize}
+				\item $x_0 = \{${\tt 81, 3F, 52, 9A, 7B, E3, 89, BA}$\}$
+				\item $x_1 = \{${\tt 72, B0, 91, 8D, 44, 05, AA, 57}$\}$
+			\end{itemize}}
+			\only<2>{\item Shared Key $k = k_1 \| k_0$
+				\begin{itemize}
+					\item $k$
+					\item $k_1$
+					\item $k_0$
+				\end{itemize}}
+				\only<3>{\item Messaggio $m$}
+				\only<4>{\item Sequence number $n$
+					\begin{itemize}
+						\item Generato in maniera casuale al primo avvio del device
+						\item Incrementato dopo ogni messaggio scambiato
+						\item Inviato insieme al messaggio
+						%\item Utilizzato nella funzione OMADigest
+						\item Usato dal ricevitore per verificare la validità del messaggio
+						\begin{itemize}
+							\item Messaggio valido se $n$ ricevuto $\in [n-1, n+8]$
+							\item In caso contrario, il ricevitore invia messaggio cifrato contenente il sequence number $n$ corrente del device
+						\end{itemize}
+					\end{itemize}}
+				\end{itemize}
+			\end{frame}
+%\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
+%	\textbf{Parametri di input dello schema di cifratura}
+%	\begin{itemize}
+%		\item Costanti
+%		\begin{itemize}
+%			\item $x_0 = \{${\tt 81, 3F, 52, 9A, 7B, E3, 89, BA}$\}$, 64 bit
+%			\item $x_1 = \{${\tt 72, B0, 91, 8D, 44, 05, AA, 57}$\}$, 64 bit
+%		\end{itemize}
+%		\pause
+%		\item Shared Key $k = k_1 \| k_0$
+%		\begin{itemize}
+%			\item $k$, 96 bit
+%			\item $k_1$, 48 bit
+%			\item $k_0$, 48 bit
+%		\end{itemize}
+%	\end{itemize}
+%\end{frame}
+
+%\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
+%	\textbf{Parametri di input dello schema di cifratura}
+%	\begin{itemize}[<+- | alert@+>]
+%		\item Messaggio $m$
+%		\item Sequence number $n$
+%		\begin{itemize}
+%			\item Generato in maniera casuale al primo avvio del device
+%			\item Incrementato dopo ogni messaggio scambiato
+%			\item Inviato insieme al messaggio
+%			%\item Utilizzato nella funzione OMADigest
+%			\item Usato dal ricevitore per verificare la validità del messaggio
+%			\begin{itemize}
+%				\item Messaggio valido se $n$ ricevuto $\in [n-1, n+8]$
+%				\item In caso contrario, il ricevitore invia messaggio cifrato contenente il sequence number $n$ corrente del device
+%			\end{itemize}
+%		\end{itemize}
+%	\end{itemize}
+%\end{frame}
+
+%\begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
+%	\textbf{Parametri di output dello schema di cifratura}
+%	\begin{itemize}
+%		\item Tag di autenticazione $t$% \gets OMADigest(k_1\|k_0,\,m\|n)$, 64 bit
+%		\item Ciphertext $c$% \gets RC4(k^{\prime} \oplus 0^{64}\|t,\,m\|n)$
+%	\end{itemize}
+%\end{frame}
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: OSGP - Authenticated Encryption Scheme}
 	\textbf{Building Blocks dello schema di cifratura autenticata}
