@@ -441,18 +441,19 @@
 %\end{frame}
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: Analisi di OSGP}
-	\textbf{Problemi legati alla sicurezza di OSGP}	
+	\textbf{Problemi legati alla sicurezza di OSGP}
 	\begin{itemize}[<+- | alert@+>]
 		\item OSGP utilizza RC4
 		\begin{itemize}
-			\item L'algoritmo RC4 soggetto ad attacchi di \emph{statistical key recovery} e \emph{plaintext key recovery}
-		\end{itemize}			
-		\item Esiste un algoritmo in grado di invertire la funzione OMADigest
-		\item Chiavi di sessione derivate dalla Shared Key
+			\item Algoritmo RC4 soggetto ad attacchi di \emph{statistical key recovery} e \emph{plaintext key recovery}
+		\end{itemize}
+		\item Molti attacchi pratici di \textit{key-recovery} contro la funzione OMADigest
+		\item Base Encryption Key derivata dalla Shared Key
 			\begin{itemize}
+				\item Se $k$ non cambia BEK resta invariata
 				\item Determinati attacchi permettono di recuperare la Shared Key
 			\end{itemize}
-	\end{itemize}	
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{Principali vulnerabilità delle Smart Grid: sommario}
